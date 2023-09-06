@@ -1,7 +1,12 @@
 import { Form, Formik, Field } from "formik";
 import {createEventoRequest} from '../api/evento.api.ts';
+import {useEvento} from '../contexts/EventoContext.tsx'
 
 function EventoCrear() {
+
+  const {text} = useEvento()
+  console.log(text)
+
   return (
     <div>
       <Formik
@@ -14,17 +19,18 @@ function EventoCrear() {
             link: "",
             tipo: "",
         }}
-        onSubmit={async (values) => {
+        onSubmit={async (values, actions) => {
           console.log(values);
           try {
             const response = await createEventoRequest(values);
             console.log(response);
+            actions.resetForm()
           } catch (error) {
             console.log(error);
           }
         }}
       >
-        {({ handleChange, handleSubmit }) => (
+        {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form>
             <label htmlFor="nom_evento">Nombre del Evento</label>
             <Field
@@ -33,6 +39,7 @@ function EventoCrear() {
               name="nom_evento"
               onChange={handleChange}
               onSubmit={handleSubmit}
+              values={values.nom_evento}
             />
 
             <label htmlFor="hora_evento">Hora</label>
@@ -42,6 +49,7 @@ function EventoCrear() {
               name="hora_evento"
               onChange={handleChange}
               onSubmit={handleSubmit}
+              values={values.hora_evento}
             />
 
             <label htmlFor="fecini_evento">Inicio</label>
@@ -50,8 +58,9 @@ function EventoCrear() {
               id="fecini_evento"
               name="fecini_evento"
               placeholder="yyyy-mm-dd"
-              onChange={handleChange}
-              onSubmit={handleSubmit}
+              onChange = {handleChange}
+              onSubmit = {handleSubmit}
+              values = {values.fecini_evento}
             />
 
             <label htmlFor="fecfin_evento">Fin</label>
@@ -62,6 +71,7 @@ function EventoCrear() {
               placeholder="yyyy-mm-dd"
               onChange={handleChange}
               onSubmit={handleSubmit}
+              values = {values.fecfin_evento}
             />
 
             <label htmlFor="modalidad">Modalidad</label>
@@ -72,6 +82,7 @@ function EventoCrear() {
               placeholder="..."
               onChange={handleChange}
               onSubmit={handleSubmit}
+              values = {values.modalidad}
             />
 
             <label htmlFor="link">Link</label>
@@ -82,6 +93,7 @@ function EventoCrear() {
               placeholder="https://www.linkdelevento.com"
               onChange={handleChange}
               onSubmit={handleSubmit}
+              values = {values.link}
             />
 
             <label htmlFor="tipo">Tipo del Evento</label>
@@ -94,7 +106,9 @@ function EventoCrear() {
               onSubmit={handleSubmit}
             />
 
-            <button type="submit">Submit</button>
+            <button type="submit" disabled = {isSubmitting}>
+              {isSubmitting ? "Guardando..." : "Guardar"}
+            </button>
           </Form>
         )}
       </Formik>
