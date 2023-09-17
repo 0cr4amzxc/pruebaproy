@@ -28,6 +28,7 @@ function EventoPages() {
                     <th>Fin</th>
                     <th>Modalidad</th>
                     <th>Enlace</th>
+                    <th>Tipo</th>
                     <th>-----</th>
                     <th>++++++</th>
                 </tr>

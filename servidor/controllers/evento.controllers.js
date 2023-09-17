@@ -62,7 +62,7 @@ export const updateEvt = async (req, res) => {
       tipo,
     } = req.body;
     const result = await pool.query(
-      "UPDATE evento SET nom_evento = ?, hora_evento = ?, fecini_evento = ?, fecfin_evento = ?, modalidad = ?, link = ? tipo = ? WHERE id_evento = ?",
+      "UPDATE evento SET nom_evento = ?, hora_evento = ?, fecini_evento = ?, fecfin_evento = ?, modalidad = ?, link = ?, tipo = ? WHERE id_evento = ?",
       [
         nom_evento,
         hora_evento,

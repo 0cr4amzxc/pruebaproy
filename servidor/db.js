@@ -7,3 +7,4 @@ export const pool = createPool({
     password: '',
     database: 'bdproyecto'
 })
+//bdproy281-v2

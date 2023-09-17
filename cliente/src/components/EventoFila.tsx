@@ -22,6 +22,7 @@ function EventoFila({ evento }) {
       <td>{evento.fecfin_evento}</td>
       <td>{evento.modalidad}</td>
       <td>{evento.link}</td>
+      <td>{evento.tipo}</td>
       <td>
         <button>Modificar</button>
       </td>
