@@ -8,3 +8,6 @@ export const createEventoRequest = async (evento: { nom_evento: string; hora_eve
 
 export const deleteEventoRequest =async (id: any) => 
     await Axios.delete(`http://localhost:4000/evento/${id}`);
+
+export const getEvRequest = async (id: any) =>
+    await Axios.get(`http://localhost:4000/evento/${id}`);

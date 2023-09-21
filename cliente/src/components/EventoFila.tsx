@@ -1,35 +1,23 @@
-import { deleteEventoRequest } from "../api/evento.api";
-import {useEvento} from '../contexts/EventoContext'
+import {useEvento} from '../contexts/EventoProvider';
+import {useNavigate} from 'react-router-dom'
 
 function EventoFila({ evento }) {
 
-  //const {} = useEvento()****AQUI
-
-  const handleDelete = async (id: any) => {
-    try {
-      const response = await deleteEventoRequest(id);
-      console.log(response)
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const {deleteEvento} = useEvento();
+  const navigate = useNavigate();
 
   return (
-    <tr>
-      <td>{evento.nom_evento}</td>
-      <td>{evento.hora_evento}</td>
-      <td>{evento.fecini_evento}</td>
-      <td>{evento.fecfin_evento}</td>
-      <td>{evento.modalidad}</td>
-      <td>{evento.link}</td>
-      <td>{evento.tipo}</td>
-      <td>
-        <button>Modificar</button>
-      </td>
-      <td>
-        <button onClick={() => handleDelete(evento.id_evento)}>Borrar</button>
-      </td>
-    </tr>
+    <div>
+      <h2>{evento.nom_evento}</h2>
+      <p>{evento.hora_evento}</p>
+      <p>{evento.fecini_evento}</p>
+      <p>{evento.fecfin_evento}</p>
+      <p>{evento.modalidad}</p>
+      <p>{evento.link}</p>
+      <p>{evento.tipo}</p>
+      <span><button onClick={() => navigate(`/edit/${evento.id_evento}`)}>Modificar</button></span>
+      <span><button onClick={() => deleteEvento(evento.id_evento)}>Borrar</button></span>
+    </div>
   );
 }
 

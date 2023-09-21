@@ -6,7 +6,7 @@ function Navbar(){
             <h1>Eventos</h1>
             <ul>
                 <li>
-                    <Link to="/">Ver</Link>
+                    <Link to="/evento">Ver Eventos</Link>
                 </li>
                 <li>
                     <Link to="/new">Crear Evento</Link>

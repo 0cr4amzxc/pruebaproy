@@ -1,10 +1,10 @@
 import { useEffect} from "react";
 import EventoFila from './../components/EventoFila';
-import {useEvento} from '../contexts/EventoContext.tsx'
+import {useEvento} from '../contexts/EventoProvider.tsx'
 
 function EventoPages() {
     //aqui precargamos los datos antes de mostrarlos
-    const {eventos, cargarEvento} = useEvento();
+    const { eventos, cargarEvento } = useEvento();
 
     useEffect(() => { 
         cargarEvento();
@@ -19,25 +19,7 @@ function EventoPages() {
     return (
         <div>
             <h1>Lista de Eventos</h1>
-            <table>
-                <thead>
-                <tr>
-                    <th>Evento</th>
-                    <th>Hora</th>
-                    <th>Inicio</th>
-                    <th>Fin</th>
-                    <th>Modalidad</th>
-                    <th>Enlace</th>
-                    <th>Tipo</th>
-                    <th>-----</th>
-                    <th>++++++</th>
-                </tr>
-                </thead>
-                <tbody>
                 { renderMain() }
-                </tbody>
-            </table>
-
         </div>
 
     )

@@ -1,33 +1,51 @@
 import { Form, Formik, Field } from "formik";
-import {createEventoRequest} from '../api/evento.api.ts';
-import {useEvento} from '../contexts/EventoContext.tsx'
+import { useEvento } from "../contexts/EventoProvider.tsx";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function EventoCrear() {
+  const { createEvento, getEvento } = useEvento();
+  const [evento, setEvento] = useState({
+          nom_evento: "",
+          hora_evento: "",
+          fecini_evento: "",
+          fecfin_evento: "",
+          modalidad: "",
+          link: "",
+          tipo: "",
+  });
+  const params = useParams();
 
-  const {text} = useEvento()
-  console.log(text)
+  useEffect(() => {
+    const unEvento = async () => {
+      if (params.id) {
+        const evento = await getEvento(params.id);
+        setEvento({
+          nom_evento: evento.nom_evento,
+          hora_evento: evento.hora_evento,
+          fecini_evento: evento.fecini_evento,
+          fecfin_evento: evento.fecfin_evento,
+          modalidad: evento.modalidad,
+          link: evento.link,
+          tipo: evento.tipo,
+        });
+        console.log(evento);
+      }
+    };
+    unEvento();
+  }, []);
 
   return (
     <div>
+      <h1>{params.id ? "Modificar Evento" : "Crear Evento"}</h1>
+
       <Formik
-        initialValues={{
-            nom_evento: "",
-            hora_evento: "",
-            fecini_evento: "",
-            fecfin_evento: "",
-            modalidad: "",
-            link: "",
-            tipo: "",
-        }}
+        initialValues={evento}
+        enableReinitialize={true}
         onSubmit={async (values, actions) => {
           console.log(values);
-          try {
-            const response = await createEventoRequest(values);
-            console.log(response);
-            actions.resetForm()
-          } catch (error) {
-            console.log(error);
-          }
+          createEvento(values);
+          actions.resetForm();
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
@@ -57,10 +75,9 @@ function EventoCrear() {
               type="date"
               id="fecini_evento"
               name="fecini_evento"
-              placeholder="yyyy-mm-dd"
-              onChange = {handleChange}
-              onSubmit = {handleSubmit}
-              values = {values.fecini_evento}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+              values={values.fecini_evento}
             />
 
             <label htmlFor="fecfin_evento">Fin</label>
@@ -68,10 +85,9 @@ function EventoCrear() {
               type="date"
               id="fecfin_evento"
               name="fecfin_evento"
-              placeholder="yyyy-mm-dd"
               onChange={handleChange}
               onSubmit={handleSubmit}
-              values = {values.fecfin_evento}
+              values={values.fecfin_evento}
             />
 
             <label htmlFor="modalidad">Modalidad</label>
@@ -82,7 +98,7 @@ function EventoCrear() {
               placeholder="..."
               onChange={handleChange}
               onSubmit={handleSubmit}
-              values = {values.modalidad}
+              values={values.modalidad}
             />
 
             <label htmlFor="link">Link</label>
@@ -93,7 +109,7 @@ function EventoCrear() {
               placeholder="https://www.linkdelevento.com"
               onChange={handleChange}
               onSubmit={handleSubmit}
-              values = {values.link}
+              values={values.link}
             />
 
             <label htmlFor="tipo">Tipo del Evento</label>
@@ -104,9 +120,10 @@ function EventoCrear() {
               placeholder="tipo"
               onChange={handleChange}
               onSubmit={handleSubmit}
+              values={values.tipo}
             />
 
-            <button type="submit" disabled = {isSubmitting}>
+            <button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Guardando..." : "Guardar"}
             </button>
           </Form>
