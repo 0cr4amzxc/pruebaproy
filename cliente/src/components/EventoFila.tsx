@@ -12,9 +12,9 @@ function EventoFila({ evento }) {
       <p>{evento.hora_evento}</p>
       <p>{evento.fecini_evento}</p>
       <p>{evento.fecfin_evento}</p>
+      <p>{evento.tipo}</p>
       <p>{evento.modalidad}</p>
       <p>{evento.link}</p>
-      <p>{evento.tipo}</p>
       <span><button onClick={() => navigate(`/edit/${evento.id_evento}`)}>Modificar</button></span>
       <span><button onClick={() => deleteEvento(evento.id_evento)}>Borrar</button></span>
     </div>

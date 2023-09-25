@@ -1,20 +1,22 @@
 import { Form, Formik, Field } from "formik";
 import { useEvento } from "../contexts/EventoProvider.tsx";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function EventoCrear() {
-  const { createEvento, getEvento } = useEvento();
+  const { createEvento, getEvento, updateEvento } = useEvento();
   const [evento, setEvento] = useState({
-          nom_evento: "",
-          hora_evento: "",
-          fecini_evento: "",
-          fecfin_evento: "",
-          modalidad: "",
-          link: "",
-          tipo: "",
+    nom_evento: "",
+    hora_evento: "",
+    fecini_evento: "",
+    fecfin_evento: "",
+    modalidad: "",
+    link: "",
+    tipo: "",
   });
+
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unEvento = async () => {
@@ -29,7 +31,7 @@ function EventoCrear() {
           link: evento.link,
           tipo: evento.tipo,
         });
-        console.log(evento);
+        //console.log(evento);
       }
     };
     unEvento();
@@ -44,8 +46,25 @@ function EventoCrear() {
         enableReinitialize={true}
         onSubmit={async (values, actions) => {
           console.log(values);
-          createEvento(values);
-          actions.resetForm();
+          //si hay parametro edita, sino crea
+          if (params.id) {
+            console.log("Editando...");
+            await updateEvento(params.id, values);
+          } else {
+            await createEvento(values);
+          }
+          //redireccionamos a la lista de eventos
+          navigate("/evento");
+          //actions.resetForm(); Ahora esto no sirve xd
+          setEvento({
+            nom_evento: "",
+            hora_evento: "",
+            fecini_evento: "",
+            fecfin_evento: "",
+            modalidad: "",
+            link: "",
+            tipo: "",
+          });
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
@@ -101,17 +120,6 @@ function EventoCrear() {
               values={values.modalidad}
             />
 
-            <label htmlFor="link">Link</label>
-            <Field
-              type="url"
-              id="link"
-              name="link"
-              placeholder="https://www.linkdelevento.com"
-              onChange={handleChange}
-              onSubmit={handleSubmit}
-              values={values.link}
-            />
-
             <label htmlFor="tipo">Tipo del Evento</label>
             <Field
               type="text"
@@ -121,6 +129,17 @@ function EventoCrear() {
               onChange={handleChange}
               onSubmit={handleSubmit}
               values={values.tipo}
+            />
+
+            <label htmlFor="link">Link</label>
+            <Field
+              type="url"
+              id="link"
+              name="link"
+              placeholder="https://www.linkdelevento.com"
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+              values={values.link}
             />
 
             <button type="submit" disabled={isSubmitting}>
