@@ -2,7 +2,7 @@
 -- Table  `cuestionario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cuestionario` (
-  `idCuestionario` INT NOT NULL,
+  `idCuestionario` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(50) NULL,
   `tipo` VARCHAR(50) NULL,
   PRIMARY KEY (`idCuestionario`))
@@ -12,7 +12,7 @@ ENGINE = InnoDB;
 -- Table  `usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `usuario` (
-  `idUsuario` INT NOT NULL,
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `nom_usu` VARCHAR(30) NULL,
   `pat_usu` VARCHAR(30) NULL,
   `mat_usu` VARCHAR(30) NULL,
@@ -28,7 +28,7 @@ ENGINE = InnoDB;
 -- Table  `administrador`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `administrador` (
-  `idAdmin` INT NOT NULL,
+  `idAdmin` INT NOT NULL AUTO_INCREMENT,
   `idUsuario` INT NOT NULL,    
   `dir_adm` VARCHAR(30) NULL,
   `cargo_adm` VARCHAR(30) NULL,
@@ -43,7 +43,7 @@ ENGINE = InnoDB;
 -- Table  `contactoEmergencia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `contactoEmergencia` (
-  `idContacto` INT NOT NULL,
+  `idContacto` INT NOT NULL AUTO_INCREMENT,
   `nom_cont` VARCHAR(50) NULL,
   `tel_cont` VARCHAR(50) NULL,
   PRIMARY KEY (`idContacto`))
@@ -53,7 +53,7 @@ ENGINE = InnoDB;
 -- Table  `Usu_tiene_contEme`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `Usu_tiene_contEme` (
-  `idUsuario` INT NOT NULL,
+  `idUsuario` INT NOT NULL ,
   `idContacto` INT NOT NULL,
   PRIMARY KEY (`idUsuario` , `idContacto`),
   FOREIGN KEY (`idUsuario`)
@@ -89,7 +89,8 @@ ENGINE = InnoDB;
 -- Table  `evento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `evento` (
-  `idEvento` INT NOT NULL,
+  `idEvento` INT NOT NULL AUTO_INCREMENT,
+  `idAdmin` INT NOT NULL,
   `nom_evento` VARCHAR(100) NULL,
   `hora_evento` TIME NULL,
   `fecini_evento` DATE NULL,
@@ -97,31 +98,20 @@ CREATE TABLE IF NOT EXISTS  `evento` (
   `modalidad` VARCHAR(50) NULL,
   `link` VARCHAR(100) NULL,
   `tipo` VARCHAR(50) NULL,
-  PRIMARY KEY (`idEvento`))
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table  `Adm_crea_ev`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS  `Adm_crea_ev` (
-  `idAdmin` INT NOT NULL,
-  `idEvento` INT NOT NULL,
-  PRIMARY KEY (`idAdmin` , `idEvento`),
+  `dir_imagen` VARCHAR(100) NULL,
+  PRIMARY KEY (`idEvento`),
   FOREIGN KEY (`idAdmin`)
     REFERENCES  `administrador` (`idAdmin`)
     ON DELETE  CASCADE
-    ON UPDATE  CASCADE,
-    FOREIGN KEY (`idEvento`)
-    REFERENCES  `evento` (`idEvento`)
-    ON DELETE  CASCADE
     ON UPDATE  CASCADE)
 ENGINE = InnoDB;
+--AUMENTAR CAMPO PARA IMAGEN(ubicaion, directorio)
 
 -- -----------------------------------------------------
 -- Table  `material`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `material` (
-  `idMaterial` INT NOT NULL,
+  `idMaterial` INT NOT NULL AUTO_INCREMENT,
   `idAdmin` INT NOT NULL,
   `url` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idMaterial` , `idAdmin`),
@@ -151,7 +141,7 @@ ENGINE = InnoDB;
 -- Table  `educativo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `educativo` (
-  `idMaterial` INT NOT NULL,
+  `idMaterial` INT NOT NULL AUTO_INCREMENT,
   `idAdmin` INT NOT NULL,
   `desc_edu` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idMaterial` , `idAdmin`),
@@ -165,7 +155,7 @@ ENGINE = InnoDB;
 -- Table  `centroAyuda`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `centroAyuda` (
-  `idCentro` INT NOT NULL,
+  `idCentro` INT NOT NULL AUTO_INCREMENT,
   `idAdmin` INT NOT NULL,
   `foto_cna` VARCHAR(100) NULL,
   `nomb_cna` VARCHAR(50) NOT NULL,
@@ -183,7 +173,7 @@ ENGINE = InnoDB;
 -- Table  `denuncia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `denuncia` (
-  `idDenuncia` INT NOT NULL,
+  `idDenuncia` INT NOT NULL AUTO_INCREMENT,
   `idUsuario` INT  NULL,
   `tipo_den` VARCHAR(50) NOT NULL,
   `fec_den` TIMESTAMP NOT NULL,
@@ -216,7 +206,7 @@ ENGINE = InnoDB;
 -- Table  `victima`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `victima` (
-  `idVictima` INT NOT NULL,
+  `idVictima` INT NOT NULL AUTO_INCREMENT,
   `nom_vic` VARCHAR(150) NULL,
   `ci_vic` VARCHAR(16),
   `ranEdad_vic` VARCHAR(20),
@@ -263,7 +253,7 @@ ENGINE = InnoDB;
 -- Table  `prueba`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `prueba` (
-  `idPrueba` INT NOT NULL,
+  `idPrueba` INT NOT NULL AUTO_INCREMENT,
   `idDenuncia` INT NOT NULL,
   `archivo_pru` VARCHAR(100) NOT NULL,
   `des_pru` VARCHAR(100) NOT NULL,
@@ -279,7 +269,7 @@ ENGINE = InnoDB;
 -- Table  `testigo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `testigo` (
-  `idTestigo` INT NOT NULL,
+  `idTestigo` INT NOT NULL AUTO_INCREMENT,
   `nom_tes` VARCHAR(150) NULL,
   `ci_tes` VARCHAR(16),
   `genero_tes`VARCHAR(20),
@@ -307,7 +297,7 @@ ENGINE = InnoDB;
 -- Table  `acusado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `acusado` (
-  `idAcusado` INT NOT NULL,
+  `idAcusado` INT NOT NULL AUTO_INCREMENT,
   `nom_acu` VARCHAR(150) NULL,
   `ci_acu` VARCHAR(16) NULL,
   `ranEdad_acu` VARCHAR(20) NULL,

@@ -43,7 +43,6 @@ export const createUsuario = (req, res) => {
     } = req.body;
     //hasheamos:
 
-    
     bcrypt.hash(req.body.password_usu.toString(), salt, async (err, hash) => {
       //if(err) return res.json({Error: "Error al hashear la pass"});
       //console.log("Hash: "+ hash);
@@ -66,7 +65,6 @@ export const createUsuario = (req, res) => {
         alias_usu,
       });
     });
-
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -74,29 +72,29 @@ export const createUsuario = (req, res) => {
 export const updateUsuario = async (req, res) => {
   try {
     const {
-      nom_evento,
-      hora_evento,
-      fecini_evento,
-      fecfin_evento,
-      modalidad,
-      link,
-      tipo,
+      nom_usu,
+      pat_usu,
+      mat_usu,
+      ci_usu,
+      alias_usu,
+      correo_usu,
+      genero_usu,
     } = req.body;
     const result = await pool.query(
-      "UPDATE evento SET nom_evento = ?, hora_evento = ?, fecini_evento = ?, fecfin_evento = ?, modalidad = ?, link = ?, tipo = ? WHERE id_evento = ?",
+      "UPDATE usuario SET nom_usu = ?, pat_usu = ?, mat_usu = ?, ci_usu = ?, alias_usu = ?, correo_usu = ?, genero_usu = ? WHERE idUsuario = ?",
       [
-        nom_evento,
-        hora_evento,
-        fecini_evento,
-        fecfin_evento,
-        modalidad,
-        link,
-        tipo,
+        nom_usu,
+        pat_usu,
+        mat_usu,
+        ci_usu,
+        alias_usu,
+        correo_usu,
+        genero_usu,
         req.params.id,
       ]
     );
     res.json({
-      nom_evento,
+      nombre: alias_usu
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -110,7 +108,7 @@ export const deleteUsuario = async (req, res) => {
     );
 
     if (result.affectedRows === 0)
-      return res.status(404).json({ message: "Evento no encontrado" });
+      return res.status(404).json({ message: "Usuario no encontrado" });
 
     return res.sendStatus(204);
   } catch (error) {
