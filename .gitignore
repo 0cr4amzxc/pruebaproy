@@ -35,3 +35,6 @@ coverage/
 
 # Ignore build scripts and tooling
 .build/
+
+# Ignore ..vscode
+.vscode/
