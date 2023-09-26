@@ -15,8 +15,8 @@ function EventoFila({ evento }) {
       <p>{evento.tipo}</p>
       <p>{evento.modalidad}</p>
       <p>{evento.link}</p>
-      <span><button onClick={() => navigate(`/edit/${evento.id_evento}`)}>Modificar</button></span>
-      <span><button onClick={() => deleteEvento(evento.id_evento)}>Borrar</button></span>
+      <span><button onClick={() => navigate(`/edit/${evento.idEvento}`)}>Modificar</button></span>
+      <span><button onClick={() => deleteEvento(evento.idEvento)}>Borrar</button></span>
     </div>
   );
 }

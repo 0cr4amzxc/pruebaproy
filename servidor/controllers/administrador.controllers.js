@@ -1,6 +1,5 @@
 import { pool } from "../db.js";
 //import jwt from "jsonwebtoken"; //ver para que usar
-import bcrypt, { hash } from "bcrypt";
 //import cookieparser from "cookie-parser";  //paracookies
 
 export const getAdmin = async (req, res) => {

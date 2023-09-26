@@ -1,7 +1,7 @@
 import { pool } from "../db.js";
-import jwt from "jsonwebtoken";
+//import jwt from "jsonwebtoken";
 import bcrypt, { hash } from "bcrypt";
-import cookieparser from "cookie-parser";
+//import cookieparser from "cookie-parser";
 
 //para encriptar
 const salt = 10;
