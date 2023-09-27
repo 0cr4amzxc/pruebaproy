@@ -2,7 +2,7 @@ import { pool } from "../db.js";
 export const getEvt = async (req, res) => {
   try {
     const [result] = await pool.query(
-      "SELECT * FROM evento WHERE id_evento = ?",
+      "SELECT * FROM evento WHERE idEvento = ?",
       [req.params.id]
     );
 
@@ -25,6 +25,7 @@ export const getEvts = async (req, res) => {
 export const createEvt = async (req, res) => {
   try {
     const {
+      idAdmin,//agragando para la ralacion
       nom_evento,
       hora_evento,
       fecini_evento,
@@ -32,10 +33,11 @@ export const createEvt = async (req, res) => {
       modalidad,
       link,
       tipo,
+      dir_imagen, //ruta imagencargada(aun por ver)
     } = req.body;
     const [result] = await pool.query(
-      "INSERT INTO evento (nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)",
-      [nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo]
+      "INSERT INTO evento (idAdmin, nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, dir_imagen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      [idAdmin, nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, dir_imagen]
     );
 
     console.log(result);
@@ -60,9 +62,10 @@ export const updateEvt = async (req, res) => {
       modalidad,
       link,
       tipo,
+      dir_imagen,
     } = req.body;
     const result = await pool.query(
-      "UPDATE evento SET nom_evento = ?, hora_evento = ?, fecini_evento = ?, fecfin_evento = ?, modalidad = ?, link = ?, tipo = ? WHERE id_evento = ?",
+      "UPDATE evento SET nom_evento = ?, hora_evento = ?, fecini_evento = ?, fecfin_evento = ?, modalidad = ?, link = ?, tipo = ?, dir_imagen = ? WHERE idEvento = ?",
       [
         nom_evento,
         hora_evento,
@@ -71,6 +74,7 @@ export const updateEvt = async (req, res) => {
         modalidad,
         link,
         tipo,
+        dir_imagen,
         req.params.id,
       ]
     );
@@ -83,7 +87,7 @@ export const updateEvt = async (req, res) => {
 };
 export const deleteEvt = async (req, res) => {
   try {
-    const [result] = await pool.query("DELETE FROM evento WHERE id_evento = ?", [
+    const [result] = await pool.query("DELETE FROM evento WHERE idEvento = ?", [
       req.params.id,
     ]);
 
