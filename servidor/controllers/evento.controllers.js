@@ -35,13 +35,24 @@ export const createEvt = async (req, res) => {
     } = req.body;
     const [result] = await pool.query(
       "INSERT INTO evento (nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)",
-      [nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo]
+      [
+        nom_evento,
+        hora_evento,
+        fecini_evento,
+        fecfin_evento,
+        modalidad,
+        link,
+        tipo,
+      ]
     );
 
     console.log(result);
     res.json({
       id: result.insertId,
       nom_evento,
+      hora_evento,
+      fecini_evento,
+      fecfin_evento,
       modalidad,
       link,
       tipo,
@@ -83,9 +94,10 @@ export const updateEvt = async (req, res) => {
 };
 export const deleteEvt = async (req, res) => {
   try {
-    const [result] = await pool.query("DELETE FROM evento WHERE id_evento = ?", [
-      req.params.id,
-    ]);
+    const [result] = await pool.query(
+      "DELETE FROM evento WHERE id_evento = ?",
+      [req.params.id]
+    );
 
     if (result.affectedRows === 0)
       return res.status(404).json({ message: "Evento no encontrado" });
