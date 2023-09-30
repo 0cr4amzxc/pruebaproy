@@ -98,7 +98,8 @@ CREATE TABLE IF NOT EXISTS  `evento` (
   `modalidad` VARCHAR(50) NULL,
   `link` VARCHAR(100) NULL,
   `tipo` VARCHAR(50) NULL,
-  `dir_imagen` VARCHAR(100) NULL,
+  `descripcion` VARCHAR(300) NULL,
+  `dir_imagen` VARCHAR(250) NULL,
   PRIMARY KEY (`idEvento`),
   FOREIGN KEY (`idAdmin`)
     REFERENCES  `administrador` (`idAdmin`)
