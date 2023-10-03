@@ -1,8 +1,25 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Cardevent from '../components/CardEvent.jsx'
+import CardEvent from '../components/CardEvent.jsx'
+
+import { useEffect, useState } from 'react'
+import {getEventRequest} from '../api/events.api.js'
 
 function Eventos() {
+
+  const [events, setEvents] = useState([])
+
+  useEffect(() => {
+    
+    async function loadEvent() {
+      const response = await getEventRequest()
+      setEvents(response.data)
+    }
+
+    loadEvent()
+  }, [])
+
+
   return (
     <div className='w-full flex flex-col lg:flex-row'>
       <div className="container p-2 w-full lg:w-2/3">
@@ -14,14 +31,18 @@ function Eventos() {
           </ul>
         </div>
 
-      <Cardevent/>
-      <Cardevent/>
-      <Cardevent/>
-      <Cardevent/>
+      <div>
+        {
+          events.map(event => (
+            <div key={event.idEvento}>
+              <CardEvent event={event}/>
+            </div>
+          ))
+        }
+      </div>
 
       </div>
-      <div className="container w-full lg:w-1/3 bg-blue-600">
-        <h3>Article</h3>
+      <div className="container w-full lg:w-1/3 bg-base-200">
       </div>
     </div>
   )
