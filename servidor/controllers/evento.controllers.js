@@ -32,12 +32,13 @@ export const createEvt = async (req, res) => {
       fecfin_evento,
       modalidad,
       link,
+      descripcion,
       tipo,
       dir_imagen, //ruta imagencargada(aun por ver)
     } = req.body;
     const [result] = await pool.query(
-      "INSERT INTO evento (idAdmin, nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, dir_imagen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-      [idAdmin, nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, dir_imagen]
+      "INSERT INTO evento (idAdmin, nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, descripcion, dir_imagen) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      [idAdmin, nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, descripcion, dir_imagen]
     );
 
     console.log(result);
@@ -62,10 +63,11 @@ export const updateEvt = async (req, res) => {
       modalidad,
       link,
       tipo,
+      descripcion,
       dir_imagen,
     } = req.body;
     const result = await pool.query(
-      "UPDATE evento SET nom_evento = ?, hora_evento = ?, fecini_evento = ?, fecfin_evento = ?, modalidad = ?, link = ?, tipo = ?, dir_imagen = ? WHERE idEvento = ?",
+      "UPDATE evento SET nom_evento = ?, hora_evento = ?, fecini_evento = ?, fecfin_evento = ?, modalidad = ?, link = ?, tipo = ?, descripcion =?, dir_imagen = ? WHERE idEvento = ?",
       [
         nom_evento,
         hora_evento,
@@ -74,6 +76,7 @@ export const updateEvt = async (req, res) => {
         modalidad,
         link,
         tipo,
+        descripcion,
         dir_imagen,
         req.params.id,
       ]
