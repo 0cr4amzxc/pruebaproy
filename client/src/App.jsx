@@ -8,6 +8,7 @@ import Informate from './pages/Informate';
 import Notfound from './pages/Notfound';
 import Signup from './pages/Signup';
 import Test from './pages/Test';
+import Dashboard from './pages/Dashboard';
 
 import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/informate" element={<Informate/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/test" element={<Test/>}></Route>
+        <Route path="/dash" element={<Dashboard/>}></Route>
         <Route path="/*" element={<Notfound/>}></Route>
       </Routes>
       <Footer/>
