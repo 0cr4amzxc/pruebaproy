@@ -10,6 +10,9 @@ import Signup from './pages/Signup';
 import Test from './pages/Test';
 import Dashboard from './pages/Dashboard';
 
+import ListUser from './pages/models/ListUser';
+import NewUser from './pages/models/NewUser';
+
 import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
 
@@ -25,7 +28,10 @@ function App() {
         <Route path="/informate" element={<Informate/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/test" element={<Test/>}></Route>
-        <Route path="/dash" element={<Dashboard/>}></Route>
+        <Route path="/dash" element={<Dashboard/>}>
+          <Route path='/dash/newuser' element={<NewUser/>}></Route>
+          <Route path='/dash/listuser' element={<ListUser/>}></Route>
+        </Route>
         <Route path="/*" element={<Notfound/>}></Route>
       </Routes>
       <Footer/>
