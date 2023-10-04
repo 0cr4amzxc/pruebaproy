@@ -7,6 +7,7 @@ function NewUser() {
   return (
     <>
       <h1 className="text-3xl text-center uppercase">crear usuario</h1>
+      <div className="divider"></div>
       <Formik
         initialValues={{
           "nom_usu": "",
@@ -22,55 +23,69 @@ function NewUser() {
           console.log(values);
           try {
             const response = await createUsuarioRequest(values)
+            window.alert('Se añadio con exito');
           } catch (error) {
             console.log(error);
           }
         }}
       >
         {({handleChange, handleSubmit}) => (
-          <Form className="card-body" onSubmit={handleSubmit}>
+          <Form className="card-body p-2" onSubmit={handleSubmit}>
           <fieldset>
-            <legend>Datos personales</legend>
-            <div className="form-control">
-              <label htmlFor="nombre" className="label">
-                <span className="label-text">Nombre</span>
-              </label>
-              <input
-                type="text"
-                name="nom_usu"
-                placeholder="Carlos Juan"
-                onChange={handleChange}
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label htmlFor="apellidoPaterno" className="label">
-                <span className="label-text">Apellido Paterno</span>
-              </label>
-              <input
-                type="text"
-                name="pat_usu"
-                placeholder="Mamani"
-                onChange={handleChange}
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label htmlFor="apellidoMaterno" className="label">
-                <span className="label-text">Apellido Materno</span>
-              </label>
-              <input
-                type="text"
-                name="mat_usu"
-                placeholder="Quispe"
-                onChange={handleChange}
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
+            <div className="container grid grid-cols-1 lg:grid-cols-3  gap-3">
+              <div className="form-control">
+                <label htmlFor="nombre" className="label">
+                  <span className="label-text">Nombre</span>
+                </label>
+                <input
+                  type="text"
+                  name="nom_usu"
+                  placeholder="Carlos Juan"
+                  onChange={handleChange}
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label htmlFor="apellidoPaterno" className="label">
+                  <span className="label-text">Apellido Paterno</span>
+                </label>
+                <input
+                  type="text"
+                  name="pat_usu"
+                  placeholder="Mamani"
+                  onChange={handleChange}
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label htmlFor="apellidoMaterno" className="label">
+                  <span className="label-text">Apellido Materno</span>
+                </label>
+                <input
+                  type="text"
+                  name="mat_usu"
+                  placeholder="Quispe"
+                  onChange={handleChange}
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label htmlFor="nickname" className="label">
+                  <span className="label-text">Nickname</span>
+                </label>
+                <input
+                  type="text"
+                  name="alias_usu"
+                  placeholder="CarlosJu232"
+                  onChange={handleChange}
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
               <label htmlFor="nickname" className="label">
                 <span className="label-text">Ci</span>
               </label>
@@ -84,36 +99,20 @@ function NewUser() {
               />
             </div>
             <div className="form-control">
-              <label htmlFor="nickname" className="label">
-                <span className="label-text">Nickname</span>
+              <label htmlFor="email" className="label">
+                <span className="label-text">Genero</span>
               </label>
-              <input
-                type="text"
-                name="alias_usu"
-                placeholder="CarlosJu232"
-                onChange={handleChange}
-                className="input input-bordered"
-                required
-              />
+              <select className="select select-bordered w-full max-w-xs" name="genero_usu" onChange={handleChange} required >
+                <option disabled selected>Seleccionar una opcion</option>
+                <option>Masculino</option>
+                <option>Femenino</option>
+              </select>
+            </div>
             </div>
           </fieldset>
 
           <fieldset>
-            <legend>Credenciales</legend>
-            <div className="form-control">
-              <label htmlFor="password" className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                name="password_usu"
-                placeholder="password"
-                onChange={handleChange}
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
+          <div className="form-control">
               <label htmlFor="email" className="label">
                 <span className="label-text">Correo Electrónico</span>
               </label>
@@ -127,13 +126,13 @@ function NewUser() {
               />
             </div>
             <div className="form-control">
-              <label htmlFor="email" className="label">
-                <span className="label-text">Genero</span>
+              <label htmlFor="password" className="label">
+                <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
-                name="genero_usu"
-                placeholder="Masculino"
+                type="password"
+                name="password_usu"
+                placeholder="password"
                 onChange={handleChange}
                 className="input input-bordered"
                 required

@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 function Dashboard() {
   return (
-    <div className="w-full flex flex-col md:flex-row">
+    <div className="w-full flex flex-col-reverse md:flex-row">
       <div className="container p-2 w-full md:w-1/4 flex flex-col gap-2">
         <div className="collapse collapse-arrow bg-base-200">
           <input type="radio" name="my-accordion-2" />

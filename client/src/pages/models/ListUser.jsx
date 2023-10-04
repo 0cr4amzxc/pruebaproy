@@ -30,7 +30,7 @@ function ListUser() {
   return (
     <>
       <h1 className="text-3xl text-center uppercase pb-2">usuarios</h1>
-
+      <div className="divider"></div>
       <div className="container p-2">
         <div className="overflow-x-auto">
           <table className="table table-xs">
