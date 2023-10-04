@@ -102,7 +102,7 @@ function NewUser() {
               <label htmlFor="email" className="label">
                 <span className="label-text">Genero</span>
               </label>
-              <select className="select select-bordered w-full max-w-xs" name="genero_usu" onChange={handleChange} required >
+              <select className="select select-bordered w-full lg:max-w-xs" name="genero_usu" onChange={handleChange} required >
                 <option disabled selected>Seleccionar una opcion</option>
                 <option>Masculino</option>
                 <option>Femenino</option>
