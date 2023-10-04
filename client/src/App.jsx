@@ -29,6 +29,7 @@ function App() {
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/test" element={<Test/>}></Route>
         <Route path="/dash" element={<Dashboard/>}>
+          <Route index element={<ListUser/>}></Route>
           <Route path='/dash/newuser' element={<NewUser/>}></Route>
           <Route path='/dash/listuser' element={<ListUser/>}></Route>
         </Route>
