@@ -1,3 +1,5 @@
+import {formatDate} from '../js/methods.js'
+
 function CardEvent({event}) {
     return (
       <div className='flex flex-col lg:flex-row items-center gap-2 m-3 p-2 rounded-xl shadow border '>
@@ -14,7 +16,7 @@ function CardEvent({event}) {
                     <div className="badge badge-success text-base-100">{event.tipo}</div>
                     <div className="badge badge-neutral text-base-100">{event.modalidad}</div>
                   </div>
-                  <p className='text-info'>{event.fecini_evento} - {event.hora_evento}</p>
+                  <p className='text-info'>{`${event.hora_evento} - ${formatDate(event.fecini_evento)}`}</p>
               </div>
           </div>
       </div>

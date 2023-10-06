@@ -69,10 +69,10 @@ function Dashboard() {
           <div className="collapse-content">
             <ul>
               <li>
-                <NavLink to="/dash/newuser">Nuevo Evento</NavLink>
+                <NavLink to="/dash/newevent">Nuevo Evento</NavLink>
               </li>
               <li>
-                <NavLink to="/dash/listuser">Listar Eventos</NavLink>
+                <NavLink to="/dash/listevent">Listar Eventos</NavLink>
               </li>
             </ul>
           </div>
@@ -104,10 +104,10 @@ function Dashboard() {
           <div className="collapse-content">
             <ul>
               <li>
-                <NavLink to="/dash/newuser">Nuevo Material</NavLink>
+                <NavLink to="/dash/newmaterial">Nuevo Material</NavLink>
               </li>
               <li>
-                <NavLink to="/dash/listuser">Listar Materiales</NavLink>
+                <NavLink to="/dash/listmaterial">Listar Materiales</NavLink>
               </li>
             </ul>
           </div>
@@ -145,10 +145,10 @@ function Dashboard() {
           <div className="collapse-content">
             <ul>
               <li>
-                <NavLink to="/dash/newuser">Nuevo Centro</NavLink>
+                <NavLink to="/dash/newcenter">Nuevo Centro</NavLink>
               </li>
               <li>
-                <NavLink to="/dash/listuser">Listar Centros</NavLink>
+                <NavLink to="/dash/listcenter">Listar Centros</NavLink>
               </li>
             </ul>
           </div>
@@ -181,7 +181,7 @@ function Dashboard() {
           <div className="collapse-content">
             <ul>
               <li>
-                <NavLink to="/dash/listuser">Listar Denuncias</NavLink>
+                <NavLink to="/dash/listdenuncia">Listar Denuncias</NavLink>
               </li>
             </ul>
           </div>
