@@ -9,7 +9,7 @@ const salt = 10;
 export const getUsuario = async (req, res) => {
   try {
     const [result] = await pool.query(
-      "SELECT * FROM usuario WHERE idUsuario = ?",
+      "SELECT nom_usu, pat_usu, mat_usu, ci_usu, alias_usu, correo_usu, genero_usu FROM usuario WHERE idUsuario = ?",
       [req.params.id]
     );
 
@@ -23,7 +23,7 @@ export const getUsuario = async (req, res) => {
 };
 export const getUsuarios = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM usuario");
+    const [result] = await pool.query("SELECT nom_usu, pat_usu, mat_usu, ci_usu, alias_usu, correo_usu, genero_usu FROM usuario");
     res.json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });

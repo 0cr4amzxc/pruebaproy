@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS  `usuario` (
   `mat_usu` VARCHAR(30) NULL,
   `ci_usu` VARCHAR(16) NULL,
   `alias_usu` VARCHAR(50) NULL,
-  `password_usu` VARCHAR(45) NULL,
+  `password_usu` VARCHAR(250) NULL,
   `correo_usu` VARCHAR(30) NULL,
   `genero_usu` VARCHAR(10) NULL,
   PRIMARY KEY (`idUsuario`))
@@ -90,7 +90,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `evento` (
   `idEvento` INT NOT NULL AUTO_INCREMENT,
-  `idAdmin` INT NOT NULL,
   `nom_evento` VARCHAR(100) NULL,
   `hora_evento` TIME NULL,
   `fecini_evento` DATE NULL,
@@ -100,26 +99,17 @@ CREATE TABLE IF NOT EXISTS  `evento` (
   `tipo` VARCHAR(50) NULL,
   `descripcion` VARCHAR(300) NULL,
   `dir_imagen` VARCHAR(250) NULL,
-  PRIMARY KEY (`idEvento`),
-  FOREIGN KEY (`idAdmin`)
-    REFERENCES  `administrador` (`idAdmin`)
-    ON DELETE  CASCADE
-    ON UPDATE  CASCADE)
+  PRIMARY KEY (`idEvento`))
 ENGINE = InnoDB;
---AUMENTAR CAMPO PARA IMAGEN(ubicaion, directorio)
+
 
 -- -----------------------------------------------------
 -- Table  `material`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `material` (
   `idMaterial` INT NOT NULL AUTO_INCREMENT,
-  `idAdmin` INT NOT NULL,
   `url` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`idMaterial` , `idAdmin`),
-  FOREIGN KEY (`idAdmin`)
-    REFERENCES  `administrador` (`idAdmin`)
-    ON DELETE  CASCADE
-    ON UPDATE  CASCADE)
+  PRIMARY KEY (`idMaterial`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -127,13 +117,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `norma` (
   `idMaterial` INT NOT NULL,
-  `idAdmin` INT NOT NULL,
   `vigencia_nor` DATE NOT NULL,
   `fuente_nor` VARCHAR(50) NOT NULL,
   `desc_nor` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`idMaterial` , `idAdmin`),
-  FOREIGN KEY (`idMaterial` , `idAdmin`)
-    REFERENCES  `material` (`idMaterial` , `idAdmin`)
+  PRIMARY KEY (`idMaterial`),
+  FOREIGN KEY (`idMaterial`)
+    REFERENCES  `material` (`idMaterial`)
     ON DELETE  CASCADE
     ON UPDATE  CASCADE)
 ENGINE = InnoDB;
@@ -143,11 +132,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `educativo` (
   `idMaterial` INT NOT NULL AUTO_INCREMENT,
-  `idAdmin` INT NOT NULL,
   `desc_edu` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`idMaterial` , `idAdmin`),
-  FOREIGN KEY (`idMaterial` , `idAdmin`)
-    REFERENCES  `material` (`idMaterial` , `idAdmin`)
+  PRIMARY KEY (`idMaterial`),
+  FOREIGN KEY (`idMaterial`)
+    REFERENCES  `material` (`idMaterial`)
     ON DELETE  CASCADE
     ON UPDATE  CASCADE)
 ENGINE = InnoDB;
@@ -157,17 +145,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `centroAyuda` (
   `idCentro` INT NOT NULL AUTO_INCREMENT,
-  `idAdmin` INT NOT NULL,
   `foto_cna` VARCHAR(100) NULL,
   `nomb_cna` VARCHAR(50) NOT NULL,
   `categ_cna` VARCHAR(50) NOT NULL,
   `dir_cna` VARCHAR(50) NOT NULL,
   `desc_cna` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`idCentro` , `idAdmin`),
-  FOREIGN KEY (`idAdmin`)
-    REFERENCES  `administrador` (`idAdmin`)
-    ON DELETE  CASCADE
-    ON UPDATE  CASCADE)
+  PRIMARY KEY (`idCentro`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
