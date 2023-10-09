@@ -1,4 +1,5 @@
 import { pool } from "../db.js";
+
 export const getEvt = async (req, res) => {
   try {
     const [result] = await pool.query(
@@ -25,7 +26,7 @@ export const getEvts = async (req, res) => {
 export const createEvt = async (req, res) => {
   try {
     const {
-      idAdmin,//agragando para la ralacion
+      //idAdmin,//agragando para la ralacion
       nom_evento,
       hora_evento,
       fecini_evento,
@@ -37,8 +38,8 @@ export const createEvt = async (req, res) => {
       dir_imagen, //ruta imagencargada(aun por ver)
     } = req.body;
     const [result] = await pool.query(
-      "INSERT INTO evento (idAdmin, nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, descripcion, dir_imagen) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?)",
-      [idAdmin, nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, descripcion, dir_imagen]
+      "INSERT INTO evento (nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, descripcion, dir_imagen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      [nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, descripcion, dir_imagen]
     );
 
     console.log(result);
@@ -101,4 +102,8 @@ export const deleteEvt = async (req, res) => {
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
+};
+
+export const imgEvt = async(req , res)=>{
+  console.log(req.files);
 };
