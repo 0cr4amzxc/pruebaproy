@@ -1,4 +1,5 @@
 import { pool } from "../db.js";
+
 export const getEvt = async (req, res) => {
   try {
     const [result] = await pool.query(
@@ -101,4 +102,8 @@ export const deleteEvt = async (req, res) => {
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
+};
+
+export const imgEvt = async(req , res)=>{
+  console.log(req.files);
 };

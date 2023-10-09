@@ -5,6 +5,7 @@ import NotFound from './pages/NotFound';
 import Inicio from './pages/Inicio';
 import Register from './pages/RegistroUsu';
 import Navbar from './components/Navbar';
+import PruebaImg from './pages/PruebaImg';
 import {EventoContextProvider} from './contexts/EventoProvider';
 import LoginUsu from './pages/loginUsu';
 
@@ -21,6 +22,7 @@ function App(){
       <Route path = "/new" element = { <EventoCrear/>}/>
       <Route path = "/edit/:id" element = { <EventoCrear/>}/>
       <Route path = "*" element = { <NotFound/>}/>
+      <Route path = "/img" element = { <PruebaImg/>}/>
     </Routes>
     </EventoContextProvider>
   )

@@ -14,3 +14,6 @@ export const getEvRequest = async (id: any) =>
 
 export const updateEventoRequest = async (id:any, newFields: { nom_evento: string; hora_evento: string; fecini_evento: string; fecfin_evento: string; modalidad: string; link: string; tipo: string; }) => 
     await Axios.put(`http://localhost:4000/evento/${id}`, newFields);
+
+export const imgEventoRequest = async () =>
+    await Axios.post(`http://localhost:4000/imgEvento/`);
