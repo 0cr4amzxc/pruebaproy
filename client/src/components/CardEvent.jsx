@@ -8,15 +8,15 @@ function CardEvent({event}) {
           </div>
           <div className='flex flex-col justify-between gap-5 p-2'>
               <div>
-                  <h3 className='text-3xl'>{event.nom_evento}</h3>
-                  <p className='text-justify'>{event.descripcion}</p>
+                  <h3 className='text-2xl uppercase text-neutral'>{event.nom_evento}</h3>
+                  <p className='text-sm'>{event.descripcion}</p>
               </div>
               <div className='flex flex-row items-center justify-between'>
-                  <div>
+                  <div className='container'>
                     <div className="badge badge-success text-base-100">{event.tipo}</div>
                     <div className="badge badge-neutral text-base-100">{event.modalidad}</div>
                   </div>
-                  <p className='text-info'>{`${event.hora_evento} - ${formatDate(event.fecini_evento)}`}</p>
+                  <p className='text-info text-xs'>{`${event.hora_evento} - ${formatDate(event.fecini_evento)}`}</p>
               </div>
           </div>
       </div>
