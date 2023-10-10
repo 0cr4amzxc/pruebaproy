@@ -17,7 +17,7 @@ export const getNorma = async (req, res) => {
 };
 export const getNormas = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT url, desc_nor, fuente_nor, vigencia_nor FROM material as m, norma as n WHERE m.idMaterial = n.idMaterial;");
+    const [result] = await pool.query("SELECT m.idMaterial, url, desc_nor, fuente_nor, vigencia_nor FROM material as m, norma as n WHERE m.idMaterial = n.idMaterial;");
     res.json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });

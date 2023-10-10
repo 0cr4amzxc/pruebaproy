@@ -8,7 +8,7 @@ VALUES
 
 
 --* Material
---* Educativo
+--* Norma
 
 -- Insert into 'material' table with specified idMaterial and unique URLs
 INSERT INTO `material` (`idMaterial`, `url`)
@@ -24,7 +24,7 @@ VALUES
     (102, '2023-10-15', 'Source Norma 2', 'Norma 2 Description'),
     (103, '2023-10-20', 'Source Norma 3', 'Norma 3 Description');
 
---* Norma
+--* Educativo
 -- Insert into 'material' table with specified idMaterial and unique URLs for educativo
 INSERT INTO `material` (`idMaterial`, `url`)
 VALUES
@@ -38,5 +38,3 @@ VALUES
     (201, 'Educational Material 1 Description'),
     (202, 'Educational Material 2 Description'),
     (203, 'Educational Material 3 Description');
-
-

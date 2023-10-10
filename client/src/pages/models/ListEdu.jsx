@@ -19,18 +19,18 @@ function ListEdu() {
     loadEdus();
   }, []);
 
-  async function deleteUser(idUsuario) {
+  async function deleteEdu(idMaterial) {
     try {
-      await deleteUsuarioRequest(idUsuario);
+      await deleteMaterialEduRequest(idMaterial);
       loadEdus();
     } catch (error) {
-      console.error(`Error al eliminar usuario con ID ${idUsuario}:`, error);
+      console.error(`Error al eliminar usuario con ID ${idMaterial}:`, error);
     }
   }
 
   return (
     <>
-      <h1 className="text-3xl text-center uppercase pb-2">usuarios</h1>
+      <h1 className="text-3xl text-center uppercase pb-2">Material Educativo</h1>
       <div className="divider"></div>
       <div className="container p-2">
         <div className="overflow-x-auto">
@@ -41,6 +41,7 @@ function ListEdu() {
                 <th>id</th>
                 <th>Material</th>
                 <th>Descripcion</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -50,6 +51,14 @@ function ListEdu() {
                   <td>{edu.idMaterial}</td>
                   <td>{edu.url}</td>
                   <td>{edu.desc_edu}</td>
+                  <td>
+                    <button
+                      className="btn btn-error text-base-100 text-xs"
+                      onClick={() => deleteEdu(edu.idMaterial)}
+                    >
+                      eliminar
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
