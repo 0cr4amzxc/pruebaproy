@@ -14,7 +14,8 @@ import ListUser from './pages/models/ListUser';
 import NewUser from './pages/models/NewUser';
 import ListEvent from './pages/models/ListEvent';
 import NewEvent from './pages/models/NewEvent';
-import ListMaterial from './pages/models/ListMaterial';
+import ListEdu from './pages/models/ListEdu';
+import ListNorma from './pages/models/ListNorma';
 import NewMaterial from './pages/models/NewMaterial';
 import ListCenter from './pages/models/ListHelpCenter';
 import NewCenter from './pages/models/NewHelpCenter';
@@ -43,7 +44,8 @@ function App() {
           <Route path='/dash/listuser' element={<ListUser/>}></Route>
           <Route path='/dash/listevent' element={<ListEvent/>}></Route>
           <Route path='/dash/newevent' element={<NewEvent/>}></Route>
-          <Route path='/dash/listmaterial' element={<ListMaterial/>}></Route>
+          <Route path='/dash/listedu' element={<ListEdu/>}></Route>
+          <Route path='/dash/listnorma' element={<ListNorma/>}></Route>
           <Route path='/dash/newmaterial' element={<NewMaterial/>}></Route>
           <Route path='/dash/listcenter' element={<ListCenter/>}></Route>
           <Route path='/dash/newcenter' element={<NewCenter/>}></Route>

@@ -17,7 +17,7 @@ export const getEducativo = async (req, res) => {
 };
 export const getEducativos = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT url, desc_edu FROM material as m, educativo as e WHERE m.idMaterial = e.idMaterial;");
+    const [result] = await pool.query("SELECT m.idMaterial, url, desc_edu FROM material as m, educativo as e WHERE m.idMaterial = e.idMaterial;");
     res.json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });

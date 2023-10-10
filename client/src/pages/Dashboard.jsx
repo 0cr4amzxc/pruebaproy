@@ -107,7 +107,10 @@ function Dashboard() {
                 <NavLink to="/dash/newmaterial">Nuevo Material</NavLink>
               </li>
               <li>
-                <NavLink to="/dash/listmaterial">Listar Materiales</NavLink>
+                <NavLink to="/dash/listedu">Listar Materiales Educativos</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dash/listnorma">Listar Normas</NavLink>
               </li>
             </ul>
           </div>
