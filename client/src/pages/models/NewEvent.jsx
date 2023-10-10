@@ -47,6 +47,49 @@ function NewEvent() {
                   />
                 </div>
                 <div className="form-control">
+                  <label htmlFor="tipoEvento" className="label">
+                    <span className="label-text">Tipo</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="tipo"
+                    placeholder="Conferencia"
+                    onChange={handleChange}
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
+                <div className="form-control">
+                  <label htmlFor="email" className="label">
+                    <span className="label-text">Modalidad</span>
+                  </label>
+                  <select
+                    className="select select-bordered w-full lg:max-w-xs"
+                    name="modalidad"
+                    onChange={handleChange}
+                    defaultValue={''}
+                    required
+                  >
+                    <option disabled>
+                      Seleccionar una opcion
+                    </option>
+                    <option value={'virtual'}>Virtual</option>
+                    <option value={'presencial'}>Presencial</option>
+                  </select>
+                </div>
+                <div className="form-control">
+                  <label htmlFor="horaEvento" className="label">
+                    <span className="label-text">Hora de Evento</span>
+                  </label>
+                  <input
+                    type="time"
+                    name="hora_evento"
+                    onChange={handleChange}
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
+                <div className="form-control">
                   <label htmlFor="fechaEventoIn" className="label">
                     <span className="label-text">Fecha de Inicio</span>
                   </label>
@@ -70,49 +113,7 @@ function NewEvent() {
                     required
                   />
                 </div>
-                <div className="form-control">
-                  <label htmlFor="horaEvento" className="label">
-                    <span className="label-text">Hora de Evento</span>
-                  </label>
-                  <input
-                    type="time"
-                    name="hora_evento"
-                    onChange={handleChange}
-                    className="input input-bordered"
-                    required
-                  />
-                </div>
-                <div className="form-control">
-                  <label htmlFor="tipoEvento" className="label">
-                    <span className="label-text">Tipo</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="tipo"
-                    placeholder="Conferencia"
-                    onChange={handleChange}
-                    className="input input-bordered"
-                    required
-                  />
-                </div>
-                <div className="form-control">
-                  <label htmlFor="email" className="label">
-                    <span className="label-text">Modalidad</span>
-                  </label>
-                  <select
-                    className="select select-bordered w-full lg:max-w-xs"
-                    name="modalidad"
-                    onChange={handleChange}
-                    required
-                  >
-                    <option disabled selected>
-                      Seleccionar una opcion
-                    </option>
-                    <option>Vitual</option>
-                    <option>Presencial</option>
-                  </select>
-                </div>
-                <div className="form-control">
+                <div className="form-control ">
                   <label htmlFor="nickname" className="label">
                     <span className="label-text">Enlace</span>
                   </label>
@@ -125,7 +126,19 @@ function NewEvent() {
                     required
                   />
                 </div>
-                <div className="form-control">
+                <div className="form-control lg:col-span-2">
+                  <label htmlFor="nickname" className="label">
+                    <span className="label-text">Imagen del Evento</span>
+                  </label>
+                  <input
+                    type="file"
+                    className="file-input file-input-bordered w-full"
+                    name="dir_imagen"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-control col-span-full">
                   <label htmlFor="nickname" className="label">
                     <span className="label-text">Descripcion</span>
                   </label>
@@ -134,20 +147,7 @@ function NewEvent() {
                     name="descripcion"
                     placeholder="Escribe mas detalles sobre el evento aqui"
                     onChange={handleChange}
-                    className="input input-bordered textarea-primary"
-                    required
-                  />
-                </div>
-
-                <div className="form-control">
-                  <label htmlFor="nickname" className="label">
-                    <span className="label-text">Imagen del Evento</span>
-                  </label>
-                  <input
-                    type="file"
-                    className="file-input file-input-bordered w-full max-w-xs"
-                    name="dir_imagen"
-                    onChange={handleChange}
+                    className="input input-bordered textarea-primary p-2 min-h-[5rem]"
                     required
                   />
                 </div>
