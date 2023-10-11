@@ -11,7 +11,6 @@ function ListNorma() {
   async function loadNormas() {
     const response = await getMaterialNormaRequest();
     setNormas(response.data);
-    console.log(response.data);
   }
 
   useEffect(() => {

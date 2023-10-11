@@ -12,7 +12,6 @@ function ListEdu() {
   async function loadEdus() {
     const response = await getMaterialEduRequest();
     setEdus(response.data);
-    console.log(response.data);
   }
 
   useEffect(() => {

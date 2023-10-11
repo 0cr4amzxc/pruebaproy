@@ -104,13 +104,15 @@ function Dashboard() {
           <div className="collapse-content">
             <ul>
               <li>
-                <NavLink to="/dash/newmaterial">Nuevo Material</NavLink>
+                <NavLink to="/dash/newmaterial">Crear Material</NavLink>
               </li>
               <li>
-                <NavLink to="/dash/listedu">Listar Materiales Educativos</NavLink>
+                <NavLink to="/dash/listedu">
+                  Listar Materiales Educativos
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/dash/listnorma">Listar Normas</NavLink>
+                <NavLink to="/dash/listnorma">Listar Material Normas</NavLink>
               </li>
             </ul>
           </div>
