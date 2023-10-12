@@ -46,6 +46,9 @@ export const createEvt = async (req, res) => {
     res.json({
       id: result.insertId,
       nom_evento,
+      hora_evento,
+      fecini_evento,
+      fecfin_evento,
       modalidad,
       link,
       tipo,
