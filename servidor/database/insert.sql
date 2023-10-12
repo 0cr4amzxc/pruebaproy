@@ -1,4 +1,26 @@
----Evento
+--? Usuarios
+INSERT INTO `usuario` (`idUsuario`, `nom_usu`, `pat_usu`, `mat_usu`, `ci_usu`, `alias_usu`, `password_usu`, `correo_usu`, `genero_usu`)
+VALUES
+    (300, 'John', 'Doe', 'Smith', '123456789', 'johndoe', 'password123', 'john@example.com', 'Male'),
+    (301, 'Jane', 'Doe', 'Johnson', '987654321', 'janedoe', 'pass4321', 'jane@example.com', 'Female'),
+    (302, 'Michael', 'Brown', 'Johnson', '567891234', 'mikebrown', 'mikepass', 'michael@example.com', 'Male');
+
+-- users admin
+INSERT INTO `usuario` (`idUsuario`, `nom_usu`, `pat_usu`, `mat_usu`, `ci_usu`, `alias_usu`, `password_usu`, `correo_usu`, `genero_usu`)
+VALUES
+    (303, 'Maria', 'Garcia', 'Lopez', '987654321', 'mariagarcia', 'password123', 'maria@example.com', 'Female'),
+    (304, 'David', 'Smith', 'Brown', '567891234', 'davidsmith', 'pass4321', 'david@example.com', 'Male'),
+    (305, 'Laura', 'Johnson', 'Gomez', '123456789', 'laurajohnson', 'laurapass', 'laura@example.com', 'Female');
+
+
+-- ? Administradores
+INSERT INTO `administrador` (`idAdmin`, `idUsuario`, `dir_adm`, `cargo_adm`)
+VALUES
+    (400, 303, 'Admin Address 1', 'Admin'),
+    (401, 304, 'Admin Address 2', 'Admin'),
+    (402, 305, 'Admin Address 3', 'Admin');
+
+---? Evento
 INSERT INTO evento (nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, descripcion, dir_imagen) 
 VALUES 
 ('Concierto de Rock', '18:00:00', '2023-10-15', '2023-10-15', 'Presencial', 'https://ejemplo.com/concierto-rock', 'Música', 'Concierto de rock en vivo', 'https://cdn.euroinnova.edu.es/img/subidasEditor/copia%20de%20sin%20t%C3%ADtulo%20(41)-1632683109.webp'),
@@ -38,3 +60,10 @@ VALUES
     (201, 'Educational Material 1 Description'),
     (202, 'Educational Material 2 Description'),
     (203, 'Educational Material 3 Description');
+
+--? Centros de ayuda
+INSERT INTO `centroAyuda` (`idCentro`, `foto_cna`, `nomb_cna`, `categ_cna`, `dir_cna`, `desc_cna`)
+VALUES
+    (500, 'foto1.jpg', 'Centro Ayuda 1', 'Categoría 1', 'Dirección 1', 'Descripción 1'),
+    (501, 'foto2.jpg', 'Centro Ayuda 2', 'Categoría 2', 'Dirección 2', 'Descripción 2'),
+    (502, 'foto3.jpg', 'Centro Ayuda 3', 'Categoría 3', 'Dirección 3', 'Descripción 3');

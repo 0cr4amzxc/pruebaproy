@@ -2,9 +2,10 @@ import { pool } from "../db.js";
 
 export const getCentros = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM centroayuda");
+    const [result] = await pool.query("SELECT * FROM centroAyuda");
     res.json(result);
   } catch (error) {
+    console.log("algo no funcidawdjaijdihawidhaiona");
     return res.status(500).json({ message: error.message });
   }
 };
@@ -12,7 +13,7 @@ export const getCentros = async (req, res) => {
 export const getCentro = async (req, res) => {
   try {
     const [result] = await pool.query(
-      "SELECT * FROM centroayuda WHERE idCentro = ?",
+      "SELECT * FROM centroAyuda WHERE idCentro = ?",
       [req.params.id]
     );
 
@@ -29,7 +30,7 @@ export const createCentro = async (req, res) => {
   try {
     const { foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna } = req.body;
     const [result] = await pool.query(
-      "INSERT INTO centroayuda (foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna VALUES (?, ?, ?, ?, ?)",
+      "INSERT INTO centroAyuda (foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna VALUES (?, ?, ?, ?, ?)",
       [foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna]
     );
 
@@ -51,7 +52,7 @@ export const updateCentro = async (req, res) => {
   try {
     const { foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna } = req.body;
     const result = await pool.query(
-      "UPDATE centroayuda SET foto_cna = ?, nombre_cna = ?, categoria_cna = ?, dir_cna = ?, desc_cna = ? WHERE idCentro = ?",
+      "UPDATE centroAyuda SET foto_cna = ?, nombre_cna = ?, categoria_cna = ?, dir_cna = ?, desc_cna = ? WHERE idCentro = ?",
       [foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna, req.params.id]
     );
     res.json(result);
@@ -63,7 +64,7 @@ export const updateCentro = async (req, res) => {
 export const deleteCentro = async (req, res) => {
   try {
     const [result] = await pool.query(
-      "DELETE FROM centroayuda WHERE idCentro = ?",
+      "DELETE FROM centroAyuda WHERE idCentro = ?",
       [req.params.id]
     );
 
