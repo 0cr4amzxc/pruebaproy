@@ -28,18 +28,18 @@ export const getCentro = async (req, res) => {
 
 export const createCentro = async (req, res) => {
   try {
-    const { foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna } = req.body;
+    const { foto_cna, nomb_cna, categ_cna, dir_cna, desc_cna } = req.body;
     const [result] = await pool.query(
-      "INSERT INTO centroAyuda (foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna VALUES (?, ?, ?, ?, ?)",
-      [foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna]
+      "INSERT INTO centroAyuda (foto_cna, nomb_cna, categ_cna, dir_cna, desc_cna) VALUES (?, ?, ?, ?, ?)",
+      [foto_cna, nomb_cna, categ_cna, dir_cna, desc_cna]
     );
 
     console.log(result);
     res.json({
       id: result.insertId,
       foto_cna,
-      nombre_cna,
-      categoria_cna,
+      nomb_cna,
+      categ_cna,
       dir_cna,
       desc_cna,
     });
@@ -50,10 +50,10 @@ export const createCentro = async (req, res) => {
 
 export const updateCentro = async (req, res) => {
   try {
-    const { foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna } = req.body;
+    const { foto_cna, nomb_cna, categ_cna, dir_cna, desc_cna } = req.body;
     const result = await pool.query(
-      "UPDATE centroAyuda SET foto_cna = ?, nombre_cna = ?, categoria_cna = ?, dir_cna = ?, desc_cna = ? WHERE idCentro = ?",
-      [foto_cna, nombre_cna, categoria_cna, dir_cna, desc_cna, req.params.id]
+      "UPDATE centroAyuda SET foto_cna = ?, nomb_cna = ?, categ_cna = ?, dir_cna = ?, desc_cna = ? WHERE idCentro = ?",
+      [foto_cna, nomb_cna, categ_cna, dir_cna, desc_cna, req.params.id]
     );
     res.json(result);
   } catch (error) {
