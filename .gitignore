@@ -42,4 +42,3 @@ coverage/
 # auth
 docker-compose.yml
 request.rest
-db.js

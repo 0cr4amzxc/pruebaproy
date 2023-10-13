@@ -21,14 +21,9 @@ CREATE TABLE IF NOT EXISTS  `usuario` (
   `password_usu` VARCHAR(250) NULL,
   `correo_usu` VARCHAR(30) NULL,
   `genero_usu` VARCHAR(10) NULL,
+  `rol` VARCHAR(20) NULL,
   PRIMARY KEY (`idUsuario`))
 ENGINE = InnoDB;
--- -----------------------------------------------------
--- Añadiendo rol a `usuario`
--- -----------------------------------------------------
-ALTER TABLE usuario
-ADD COLUMN rol VARCHAR(20) NULL;
-
 
 -- -----------------------------------------------------
 -- Table  `administrador`

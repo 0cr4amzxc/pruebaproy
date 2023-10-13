@@ -1,13 +1,27 @@
--- Usuarios
-INSERT INTO usuario (nom_usu, pat_usu, mat_usu, ci_usu, alias_usu, password_usu, correo_usu, genero_usu, rol)
+--? Usuarios
+INSERT INTO `usuario` (`idUsuario`, `nom_usu`, `pat_usu`, `mat_usu`, `ci_usu`, `alias_usu`, `password_usu`, `correo_usu`, `genero_usu`, `rol`)
 VALUES
-  ('Admin1', 'Apat1', 'Amat1', 'CI123', 'admin1_alias', 'Admin1', 'admin1@example.com', 'M', 'admin'),
-  ('Admin2', 'Apat2', 'Amat2', 'CI456', 'admin2_alias', 'Admin2', 'admin2@example.com', 'F', 'admin'),
-  ('Usuario1', 'Upat1', 'Umat1', 'CI789', 'usuario1_alias', 'Usuario1', 'usuario1@example.com', 'M', 'usuario'),
-  ('Usuario2', 'Upat2', 'Umat2', 'CI012', 'usuario2_alias', 'Usuario2', 'usuario2@example.com', 'F', 'usuario');
+    (300, 'John', 'Doe', 'Smith', '123456789', 'johndoe', 'password123', 'john@example.com', 'Male', 'usuario'),
+    (301, 'Jane', 'Doe', 'Johnson', '987654321', 'janedoe', 'pass4321', 'jane@example.com', 'Female', 'usuario'),
+    (302, 'Michael', 'Brown', 'Johnson', '567891234', 'mikebrown', 'mikepass', 'michael@example.com', 'Male', 'usuario');
+
+-- users admin
+INSERT INTO `usuario` (`idUsuario`, `nom_usu`, `pat_usu`, `mat_usu`, `ci_usu`, `alias_usu`, `password_usu`, `correo_usu`, `genero_usu`, `rol`)
+VALUES
+    (303, 'Maria', 'Garcia', 'Lopez', '987654321', 'mariagarcia', 'password123', 'maria@example.com', 'Female', 'admin'),
+    (304, 'David', 'Smith', 'Brown', '567891234', 'davidsmith', 'pass4321', 'david@example.com', 'Male', 'admin'),
+    (305, 'Laura', 'Johnson', 'Gomez', '123456789', 'laurajohnson', 'laurapass', 'laura@example.com', 'Female', 'admin');
 
 
----Evento
+-- ? Administradores
+INSERT INTO `administrador` (`idAdmin`, `idUsuario`, `dir_adm`, `cargo_adm`)
+VALUES
+    (400, 303, 'Admin Address 1', 'Admin'),
+    (401, 304, 'Admin Address 2', 'Admin'),
+    (402, 305, 'Admin Address 3', 'Admin');
+
+---? Evento
+>>>>>>> 01ffd4b370f5155444e5e7442ef720fe9ebd20bd
 INSERT INTO evento (nom_evento, hora_evento, fecini_evento, fecfin_evento, modalidad, link, tipo, descripcion, dir_imagen) 
 VALUES 
 ('Concierto de Rock', '18:00:00', '2023-10-15', '2023-10-15', 'Presencial', 'https://ejemplo.com/concierto-rock', 'Música', 'Concierto de rock en vivo', 'https://cdn.euroinnova.edu.es/img/subidasEditor/copia%20de%20sin%20t%C3%ADtulo%20(41)-1632683109.webp'),
