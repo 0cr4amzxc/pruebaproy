@@ -19,3 +19,7 @@ export const deleteMaterialEduRequest = async (eduId) => {
         throw new Error("Error deleting event.");
     }
 }
+
+export const getEduRequest = (id) => {
+  return axios.get(`http://localhost:4000/edu/${id}`);
+};

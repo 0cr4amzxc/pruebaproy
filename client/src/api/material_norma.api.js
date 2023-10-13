@@ -19,3 +19,7 @@ export const deleteMaterialNormaRequest = async (normaId) => {
         throw new Error("Error deleting event.");
     }
 }
+
+export const getNormaRequest = (id) => {
+    return axios.get(`http://localhost:4000/norma/${id}`);
+}

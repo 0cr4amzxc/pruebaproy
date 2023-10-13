@@ -5,6 +5,9 @@ import Ayudacentro from './pages/Ayudacentro';
 import Denuncia from './pages/Denuncia';
 import Eventos from './pages/Eventos';
 import Informate from './pages/Informate';
+import Normas from './pages/Normas'
+import Edus from './pages/Edus'
+
 import Notfound from './pages/Notfound';
 import Signup from './pages/Signup';
 import Test from './pages/Test';
@@ -36,6 +39,8 @@ function App() {
         <Route path="/denuncia" element={<Denuncia/>}></Route>
         <Route path="/eventos" element={<Eventos/>}></Route>
         <Route path="/informate" element={<Informate/>}></Route>
+        <Route path="/informate/edu/:id" element={<Edus/>}></Route>
+        <Route path="/informate/norma/:id" element={<Normas/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/test" element={<Test/>}></Route>
         <Route path="/dash" element={<Dashboard/>}>
