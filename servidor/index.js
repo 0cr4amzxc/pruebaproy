@@ -17,6 +17,6 @@ app.use(adminRoutes);
 app.use(normaRoutes);
 app.use(educativoRoutes);
 app.use(centroRoutes);
-app.use(centroRoutes);
+app.use(denunciaRoutes);
 
 console.log(`Server is running in port ${PORT}`);

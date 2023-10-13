@@ -67,3 +67,20 @@ VALUES
     (500, 'foto1.jpg', 'Centro Ayuda 1', 'Categoría 1', 'Dirección 1', 'Descripción 1'),
     (501, 'foto2.jpg', 'Centro Ayuda 2', 'Categoría 2', 'Dirección 2', 'Descripción 2'),
     (502, 'foto3.jpg', 'Centro Ayuda 3', 'Categoría 3', 'Dirección 3', 'Descripción 3');
+
+--? Denuncias
+-- Insert individual records into 'denuncia' table with idDenuncia starting from 600
+INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
+VALUES (600, 303, 'Fraude', '2023-10-10 12:00:00');
+
+INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
+VALUES (601, 304, 'Acoso', '2023-10-11 14:30:00');
+
+INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
+VALUES (602, 305, 'Robo', '2023-10-12 09:45:00');
+
+INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
+VALUES (603, 303, 'Violencia', '2023-10-13 16:20:00');
+
+INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
+VALUES (604, 304, 'Difamación', '2023-10-14 11:10:00');

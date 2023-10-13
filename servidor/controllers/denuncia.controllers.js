@@ -27,14 +27,14 @@ export const getDenuncia = async (req, res) => {
 
 export const createDenuncia = async (req, res) => {
   try {
-    const { tipo_den } = req.body;
+    const { idUsuario, tipo_den, fec_den } = req.body;
 
     // Guarda el id del usuario que hace la denuncia
-    const idUsuario = req.user.id;
+    //const idUsuario = req.user.id;
 
     const [result] = await pool.query(
-      "INSERT INTO denuncias (idUsuario, tipo_den, fec_den) VALUES (?, ?, NOW())",
-      [idUsuario, tipo_den]
+      "INSERT INTO denuncia (idUsuario, tipo_den, fec_den) VALUES (?, ?, NOW())",
+      [idUsuario, tipo_den, fec_den]
     );
 
     console.log(result);
