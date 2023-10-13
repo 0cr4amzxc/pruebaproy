@@ -1,7 +1,7 @@
 {
   "name": "proyecto",
   "version": "1.0.0",
-  "description": "",
+  "description": "Para inciar el servidor primero tienes que instalar los modulos de node js ``` npm install ``` Para conectar con su respectiva base de datos configure en ***db.js***",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -21,9 +21,18 @@
     "mime-types": "^2.1.35",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
-    "mysql2": "^3.6.0"
+    "mysql2": "^3.6.0",
+    "sequelize": "^6.33.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TsukiNekoDev/Proyecto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TsukiNekoDev/Proyecto/issues"
+  },
+  "homepage": "https://github.com/TsukiNekoDev/Proyecto#readme"
 }

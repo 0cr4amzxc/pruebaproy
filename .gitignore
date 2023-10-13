@@ -38,3 +38,8 @@ coverage/
 
 # Ignore ..vscode
 .vscode/
+
+# auth
+docker-compose.yml
+request.rest
+db.js

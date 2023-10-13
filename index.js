@@ -6,8 +6,21 @@ import usuarioRoutes from "./routes/usuario.routes.js";
 import adminRoutes from "./routes/administrador.routes.js";
 import normaRoutes from "./routes/norma.routes.js";
 import educativoRoutes from "./routes/educativo.routes.js";
-import centroRoutes from "./routes/centroAyuda.routes.js";
-import denunciaRoutes from "./routes/denuncia.routes.js"
+//(solo para pol)
+//import db from "./config/Database.js";
+import loginUser from "./routes/login.routes.js"
+import session from 'express-session';
+
+app.use(
+    session({
+      secret: 'tu_secreto', // Cambiar por cadena segura xd
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        secure: "auto"
+      }
+    })
+  );
 
 app.listen(PORT);
 app.use(indexRoutes);
@@ -16,7 +29,11 @@ app.use(usuarioRoutes);
 app.use(adminRoutes);
 app.use(normaRoutes);
 app.use(educativoRoutes);
-app.use(centroRoutes);
-app.use(denunciaRoutes);
+app.use(loginUser);
+
+//creando la base de datos (solo para pol)
+//(async()=>{
+//    await db.sync()
+//})();
 
 console.log(`Server is running in port ${PORT}`);
