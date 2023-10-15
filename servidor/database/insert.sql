@@ -35,7 +35,7 @@ VALUES
 -- Insert into 'material' table with specified idMaterial and unique URLs
 INSERT INTO `material` (`idMaterial`, `url`)
 VALUES
-    (101, 'http://example.com/material_norma_1'),
+    (101, 'https://www.defensoria.gob.bo/uploads/files/cartilla-ley-348-en-43-preguntas-y-respuestas.pdf'),
     (102, 'http://example.com/material_norma_2'),
     (103, 'http://example.com/material_norma_3');
 
@@ -50,7 +50,7 @@ VALUES
 -- Insert into 'material' table with specified idMaterial and unique URLs for educativo
 INSERT INTO `material` (`idMaterial`, `url`)
 VALUES
-    (201, 'http://example.com/material_educativo_1'),
+    (201, 'https://www.defensoria.gob.bo/uploads/files/cartilla-ley-348-en-43-preguntas-y-respuestas.pdf'),
     (202, 'http://example.com/material_educativo_2'),
     (203, 'http://example.com/material_educativo_3');
 
