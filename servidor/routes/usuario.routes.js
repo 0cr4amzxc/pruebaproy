@@ -12,7 +12,7 @@ const router = Router();
 
 //rutas para cada peticion
 //router.get("/usuario", verificarSesionActiva, verificarAdmin, getUsuarios);
-router.get("/usuario", getUsuarios);
+router.get("/usuario",verificarSesionActiva, verificarAdmin, getUsuarios);
 router.get("/usuario/:id",verificarSesionActiva, verificarAdmin, getUsuario);
 //router.post("/usuario",createUsuario);
 router.post("/usuario", verificarAdmin,createUsuario);

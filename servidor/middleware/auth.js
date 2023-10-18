@@ -3,7 +3,6 @@ export const verificarSesionActiva = (req, res, next) => {
     if (!req.session || !req.session.userId) {
         return res.status(401).json({ message: 'Por favor, inicie sesión en su cuenta' });
     }
-
     // Si hay una sesión activa, continúa con la solicitud
     next();
 };
@@ -16,6 +15,7 @@ export const verificarAdmin = (req, res, next) => {
         next();
     } else {
         // Si el usuario no es administrador, devuelve un mensaje de acceso denegado
+        //de aqui mandar  aun apagina de verficacion
         res.status(403).json({ message: 'Acceso denegado: se requieren permisos de administrador' });
     }
 };
