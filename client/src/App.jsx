@@ -24,7 +24,7 @@ import ListCenter from './pages/models/ListHelpCenter';
 import NewCenter from './pages/models/NewHelpCenter';
 import ListDenuncia from './pages/models/ListDenuncia'
 
-
+import ChatBotHelper from './components/ChatBotHelper';
 
 import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
@@ -59,6 +59,7 @@ function App() {
         <Route path="/*" element={<Notfound/>}></Route>
       </Routes>
       <Footer/>
+      <ChatBotHelper/>
     </>
   )
 }
