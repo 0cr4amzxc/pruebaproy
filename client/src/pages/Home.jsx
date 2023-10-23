@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -16,12 +17,12 @@ function Home() {
               momentos difíciles. Juntos, daremos paso hacia un futuro libre de
               violencia. Tu bienestar es nuestra misión.
             </p>
-            <button className="btn btn-info bg-base-100">Ver mas</button>
+            <a href="#inf-banner" className="btn btn-info bg-base-100">Ver mas</a>
           </div>
         </div>
       </div>
 
-      <div className="hero min-h-screen bg-base-200">
+      <div id="inf-banner" className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Informate 📢</h1>
@@ -38,7 +39,7 @@ function Home() {
       <div className="min-h-screen bg-primary flex flex-col justify-evenly items-center">
         <h1 className="text-4xl sm:text-5xl font-bold text-base-100 text-center mt-5">Quieres Informarte 🤔 ?</h1>
         <div className="carousel carousel-center w-11/12 p-4 my-8 space-x-4 flex justify-start md:justify-center bg-accent rounded-box">
-          <div className="card carousel-item w-full md:w-1/4 xl:w-1/5 bg-base-100 shadow-xl">
+          <div className="card carousel-item w-full md:w-1/4 xl:w-1/8 bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://i.postimg.cc/zDKdt2q0/information.jpg"
@@ -49,11 +50,11 @@ function Home() {
               <h2 className="card-title">Eventos</h2>
               <p className="text-base md:text-xs lg:text-base">Accede a charlas y simposios sobre la violencia. Únete para aprender y crecer juntos en nuestra lucha contra la violencia.</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-success">Ver mas</button>
+                <Link to="/eventos" className="btn btn-success">Ver mas</Link>
               </div>
             </div>
           </div>
-          <div className="card carousel-item w-full md:w-1/4 xl:w-1/5 bg-base-100 shadow-xl">
+          <div className="card carousel-item w-full md:w-1/4 xl:w-1/8 bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://i.postimg.cc/gk4xGdYj/eventos.jpg"
@@ -64,11 +65,11 @@ function Home() {
               <h2 className="card-title">Informate</h2>
               <p className="text-base md:text-xs lg:text-base">Lee artículos educativos y normativas para comprender y abordar la violencia. Estamos aquí para tu conocimiento y seguridad.</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-success">Ver mas</button>
+                <Link to="/informate" className="btn btn-success">Ver mas</Link>
               </div>
             </div>
           </div>
-          <div className="card carousel-item w-full md:w-1/4 xl:w-1/5 bg-base-100 shadow-xl">
+          <div className="card carousel-item w-full md:w-1/4 xl:w-1/8 bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://i.postimg.cc/Gmmn1n2c/test.jpg"
@@ -79,7 +80,7 @@ function Home() {
               <h2 className="card-title">Test</h2>
               <p className="text-base md:text-xs lg:text-base">Realiza pruebas para evaluar situaciones de violencia y obtener orientación adecuada.Tu bienestar es nuestra prioridad.</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-success">Ver mas</button>
+                <Link to="/test" className="btn btn-success">Ver mas</Link>
               </div>
             </div>
           </div>
@@ -114,7 +115,7 @@ function Home() {
               <h2 className="card-title">Denuncia</h2>
               <p>Puedes reportar casos de violencia de forma confidencial y segura. Estamos aquí para apoyarte y tomar medidas para garantizar tu seguridad</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-success">Ver mas</button>
+                <Link to="/denuncia" className="btn btn-success">Ver mas</Link>
               </div>
             </div>
           </div>
@@ -129,7 +130,7 @@ function Home() {
               <h2 className="card-title">Centro de Ayuda</h2>
               <p>Encontraras apoyo profesional y recursos para superar la violencia. Juntos, podemos enfrentar la violencia y buscar justicia.</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-success">Ver mas</button>
+              <Link to="/ayudacentro" className="btn btn-success">Ver mas</Link>
               </div>
             </div>
           </div>

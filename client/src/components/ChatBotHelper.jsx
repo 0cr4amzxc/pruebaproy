@@ -17,7 +17,7 @@ const ChatBotHelper = () => {
         className="shadow-2xl bg-base-100"
         floating={true}
         placeholder="Escribe tu mensaje."
-        botAvatar={"https://i.postimg.cc/6pVRQWC0/image-1.png"}
+        botAvatar={"https://i.postimg.cc/5N3RTCt5/gozu.jpg"}
         hideUserAvatar={true}
         headerTitle={
           <div className="flex col items-center">

@@ -1,4 +1,5 @@
 import {Route, Routes} from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 import Home from './pages/Home';
 import Ayudacentro from './pages/Ayudacentro';
@@ -30,6 +31,11 @@ import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
 
 function App() {
+  useEffect(() => {
+    document.title = "Ayda";
+    document.favicon = "https://i.postimg.cc/5N3RTCt5/gozu.jpg";
+  }, []);
+
   return (
     <>
       <NavBar/>
