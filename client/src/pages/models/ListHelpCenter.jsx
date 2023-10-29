@@ -9,7 +9,6 @@ function ListHelpCenter() {
   async function loadCentro() {
     const response = await getCentroRequest();
     setCentros(response.data);
-    console.log(response.data);
   }
 
   useEffect(() => {
