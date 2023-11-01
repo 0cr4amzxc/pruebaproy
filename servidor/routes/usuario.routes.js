@@ -17,7 +17,8 @@ router.get("/usuario", getUsuarios);
 
 router.get("/usuario/:id",verificarSesionActiva, verificarAdmin, getUsuario);
 //router.post("/usuario",createUsuario); //para crear un primer usuario admin
-router.post("/usuario", verificarSesionActiva, verificarAdmin,createUsuario);
+router.post("/usuario", createUsuario);
+//router.post("/usuario", verificarSesionActiva, verificarAdmin,createUsuario);
 router.put("/usuario/:id", verificarSesionActiva,verificarAdmin,updateUsuario);
 router.delete("/usuario/:id", verificarSesionActiva,verificarAdmin,deleteUsuario);
 
