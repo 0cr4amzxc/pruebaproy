@@ -1,10 +1,36 @@
-import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import React, {useEffect} from "react";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+//import { LogOut, reset } from "../features/authSlice";
 
-function Dashboard() {
+import { useUserContext } from '../userProvider';
+
+function Dashboard({userRoles}) {
+  //const location = useLocation();
+  //const userRole = location.state ? location.state.userRol : null;
+
+  const user = useUserContext();
+  useEffect(() => {
+    if (user) {
+      // La actualización del estado ha tenido lugar
+      console.log("Actualización del estado en dash: hola " + user.rol);
+    }
+  }, [user]);
+
+  const userRole = user.rol
+
+  console.log(userRole)
+  //console.log(response.data.rol)
+  
   return (
+    <>
+    <div>
+      {user && <p>¡ Usted es {user.rol} !</p>}
+    </div>
     <div className="w-full flex flex-col-reverse md:flex-row">
       <div className="container p-2 w-full md:w-1/4 flex flex-col gap-2">
+
+      {userRole === "admin" && (
         <div className="collapse collapse-arrow bg-base-200">
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">
@@ -29,6 +55,7 @@ function Dashboard() {
             </div>
           </div>
           <div className="collapse-content">
+          
             <ul>
               <li>
                 <NavLink to="/dash/newuser">Nuevo Usuario</NavLink>
@@ -37,8 +64,10 @@ function Dashboard() {
                 <NavLink to="/dash/listuser">Listar Usuarios</NavLink>
               </li>
             </ul>
+          
           </div>
         </div>
+      )}
 
         <div className="collapse collapse-arrow bg-base-200">
           <input type="radio" name="my-accordion-2" />
@@ -68,9 +97,11 @@ function Dashboard() {
           </div>
           <div className="collapse-content">
             <ul>
+            {userRole === "admin" && (
               <li>
                 <NavLink to="/dash/newevent">Nuevo Evento</NavLink>
               </li>
+            )}
               <li>
                 <NavLink to="/dash/listevent">Listar Eventos</NavLink>
               </li>
@@ -103,9 +134,11 @@ function Dashboard() {
           </div>
           <div className="collapse-content">
             <ul>
+            {userRole === "admin" && (
               <li>
                 <NavLink to="/dash/newmaterial">Crear Material</NavLink>
               </li>
+            )}
               <li>
                 <NavLink to="/dash/listedu">
                   Listar Materiales Educativos
@@ -149,9 +182,11 @@ function Dashboard() {
           </div>
           <div className="collapse-content">
             <ul>
+              {userRole === "admin" && (
               <li>
                 <NavLink to="/dash/newcenter">Nuevo Centro</NavLink>
               </li>
+              )}
               <li>
                 <NavLink to="/dash/listcenter">Listar Centros</NavLink>
               </li>
@@ -159,6 +194,8 @@ function Dashboard() {
           </div>
         </div>
 
+
+        {userRole === "admin" && (
         <div className="collapse collapse-arrow bg-base-200">
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">
@@ -191,7 +228,9 @@ function Dashboard() {
             </ul>
           </div>
         </div>
+      )}
       </div>
+
 
       <div className="container p-2 w-full lg:w-3/4">
         <div className="p-2">
@@ -200,6 +239,7 @@ function Dashboard() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

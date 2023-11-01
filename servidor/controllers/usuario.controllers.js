@@ -22,14 +22,30 @@ export const getUsuario = async (req, res) => {
   }
 };
 
-export const getUsuarios = async (req, res) => {
+/*export const getUsuarios = async (req, res) => {
   try {
     const [result] = await pool.query("SELECT idUsuario, nom_usu, pat_usu, mat_usu, ci_usu, alias_usu, correo_usu, genero_usu FROM usuario");
     res.json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
+};*/
+export const getUsuarios = async (req, res) => {
+  // Verifica el rol del usuario desde el cuerpo de la solicitud
+  const userRole = req.body.userRole;
+  console.log("mandando desde el front")
+  console.log(req.body)
+
+    // Si el usuario es un administrador, permite el acceso y realiza la operación.
+    try {
+      const [result] = await pool.query("SELECT idUsuario, nom_usu, pat_usu, mat_usu, ci_usu, alias_usu, correo_usu, genero_usu FROM usuario");
+      res.json(result);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
 };
+
+
 
 export const createUsuario = (req, res) => {
   try {
@@ -68,6 +84,7 @@ export const createUsuario = (req, res) => {
       res.json({
         id: result.insertId,
         alias_usu,
+        //hash
       });
     });
   } catch (error) {

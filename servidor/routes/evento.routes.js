@@ -10,6 +10,8 @@ import {
 import multer from "multer";
 import path from "path";
 
+import {verifyToken} from "../middleware/auth.js"
+
 
 //const diskstorage = multer.diskStorage({
 //  destination: path.join(__dirname, "../UploadFiles"),
@@ -23,7 +25,7 @@ const router = Router();
 //rutas para cada peticion
 router.get("/evento", getEvts);
 router.get("/evento/:id", getEvt);
-router.post("/evento", createEvt);
+router.post("/evento", verifyToken, createEvt);
 router.put("/evento/:id", updateEvt);
 router.delete("/evento/:id", deleteEvt);
 //prueba subir archivo
