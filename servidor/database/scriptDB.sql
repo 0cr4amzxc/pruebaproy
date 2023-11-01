@@ -109,7 +109,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `material` (
   `idMaterial` INT NOT NULL AUTO_INCREMENT,
-  `url` VARCHAR(100) NOT NULL,
+  `url` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`idMaterial`))
 ENGINE = InnoDB;
 
@@ -119,8 +119,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS  `norma` (
   `idMaterial` INT NOT NULL,
   `vigencia_nor` DATE NOT NULL,
-  `fuente_nor` VARCHAR(50) NOT NULL,
-  `desc_nor` VARCHAR(100) NOT NULL,
+  `fuente_nor` VARCHAR(200) NOT NULL,
+  `desc_nor` VARCHAR(800) NOT NULL,
   PRIMARY KEY (`idMaterial`),
   FOREIGN KEY (`idMaterial`)
     REFERENCES  `material` (`idMaterial`)
@@ -133,7 +133,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS  `educativo` (
   `idMaterial` INT NOT NULL AUTO_INCREMENT,
-  `desc_edu` VARCHAR(100) NOT NULL,
+  `desc_edu` VARCHAR(800) NOT NULL,
   PRIMARY KEY (`idMaterial`),
   FOREIGN KEY (`idMaterial`)
     REFERENCES  `material` (`idMaterial`)
@@ -149,8 +149,8 @@ CREATE TABLE IF NOT EXISTS  `centroAyuda` (
   `foto_cna` VARCHAR(100) NULL,
   `nomb_cna` VARCHAR(50) NOT NULL,
   `categ_cna` VARCHAR(50) NOT NULL,
-  `dir_cna` VARCHAR(50) NOT NULL,
-  `desc_cna` VARCHAR(100) NOT NULL,
+  `dir_cna` VARCHAR(300) NOT NULL,
+  `desc_cna` VARCHAR(800) NOT NULL,
   PRIMARY KEY (`idCentro`))
 ENGINE = InnoDB;
 

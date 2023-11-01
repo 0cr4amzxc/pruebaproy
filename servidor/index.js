@@ -6,6 +6,7 @@ import usuarioRoutes from "./routes/usuario.routes.js";
 import adminRoutes from "./routes/administrador.routes.js";
 import normaRoutes from "./routes/norma.routes.js";
 import educativoRoutes from "./routes/educativo.routes.js";
+import centroRoutes from "./routes/centroAyuda.routes.js";
 
 import loginUser from "./routes/auth.routes.js"
 import session from 'express-session';
@@ -32,5 +33,6 @@ app.use(normaRoutes);
 app.use(educativoRoutes);
 app.use(loginUser);
 app.use(authRoutes);
+app.use(centroRoutes);
 
 console.log(`Server is running in port ${PORT}`);
