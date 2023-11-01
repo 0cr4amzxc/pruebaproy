@@ -46,7 +46,7 @@ function Normas() {
           >
             <div className="card-body flex flex-col lg:flex-row">
               <div className="container border-2 border-neutral rounded-lg p-3 max-w-full lg:w-1/4 h-fit">
-                <h2 className="card-title">🎓 Material Educativo</h2>
+                <h2 className="card-title">⚖️ Material Normativo</h2>
                 <ul>
                   <li>{normas.desc_nor}</li>
                   <li>Vigencia: {formatDate(normas.vigencia_nor)}</li>
