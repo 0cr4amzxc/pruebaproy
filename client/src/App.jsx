@@ -14,6 +14,7 @@ import Notfound from './pages/Notfound';
 import Login from './pages/Login';
 import Test from './pages/Test';
 import Dashboard from './pages/Dashboard';
+import NewAccount from './pages/NewAccount';
 
 import ListUser from './pages/models/ListUser';
 import NewUser from './pages/models/NewUser';
@@ -65,6 +66,7 @@ function App() {
           <Route path='/dash/newcenter' element={<NewCenter/>}></Route>
           <Route path='/dash/listdenuncia' element={<ListDenuncia/>}></Route>
         </Route>
+        <Route path="/newaccount" element={<NewAccount/>}></Route>
         <Route path="/*" element={<Notfound/>}></Route>
       </Routes>
       <Footer/>
