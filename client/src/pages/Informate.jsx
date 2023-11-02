@@ -13,13 +13,11 @@ function Informate() {
     async function loadNormas() {
       const response = await getMaterialNormaRequest();
       setNormas(response.data);
-      console.log(response.data);
     }
 
     async function loadEdus() {
       const response = await getMaterialEduRequest();
       setEdus(response.data);
-      console.log(response.data);
     }
 
     loadEdus();

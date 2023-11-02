@@ -1,5 +1,6 @@
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
+import { Link } from "react-router-dom";
 
 const ChatBotHelper = () => {
   return (
@@ -82,7 +83,11 @@ const ChatBotHelper = () => {
           {
             id: "2",
             options: [
-              { value: 1, label: "¿De qué se trata este sitio web?", trigger: "3" },
+              {
+                value: 1,
+                label: "¿De qué se trata este sitio web?",
+                trigger: "3",
+              },
               { value: 2, label: "Estoy buscando información", trigger: "4" },
             ],
           },
@@ -110,22 +115,47 @@ const ChatBotHelper = () => {
           },
           {
             id: "6",
-            message: "Aquí encontrarás información sobre violencia de género.",
-            end: true,
+            message: "Si te interesa Aquí encontrarás información sobre violencia de género.",
+            trigger: "10",
           },
           {
             id: "7",
-            message: "Aquí encontrarás información sobre educación sexual integral.",
-            end: true,
+            message:
+              "Aquí encontrarás información sobre educación sexual integral.",
+            trigger: "11",
           },
           {
             id: "8",
             message: "Aquí encontrarás información sobre normativas.",
-            end: true,
+            trigger: "12",
           },
           {
             id: "9",
             message: "Aquí encontrarás información sobre eventos.",
+            trigger: "13",
+          },
+          {
+            id: "10",
+            component:
+            <div>
+              
+              <Link to='/informate'>Articulos</Link>
+            </div>,
+            end: true,
+          },
+          {
+            id: "11",
+            component: <div> This is an example component </div>,
+            end: true,
+          },
+          {
+            id: "12",
+            component: <div> This is an example component </div>,
+            end: true,
+          },
+          {
+            id: "13",
+            component: <div> This is an example component </div>,
             end: true,
           },
         ]}
