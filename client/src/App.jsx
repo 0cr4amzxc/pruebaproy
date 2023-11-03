@@ -13,6 +13,13 @@ import Edus from './pages/Edus'
 import Notfound from './pages/Notfound';
 import Login from './pages/Login';
 import Test from './pages/Test';
+
+import ListTest from './pages/quiz/ListTest';
+import Test1 from './pages/quiz/Test1';
+import Test2 from './pages/quiz/Test2';
+import Test3 from './pages/quiz/Test3';
+import Test4 from './pages/quiz/Test4';
+
 import Dashboard from './pages/Dashboard';
 import NewAccount from './pages/NewAccount';
 
@@ -53,10 +60,16 @@ function App() {
         <Route path="/informate/edu/:id" element={<Edus/>}></Route>
         <Route path="/informate/norma/:id" element={<Normas/>}></Route>
         <Route path="/signup" element={<Login/>}></Route>
-        <Route path="/test" element={<Test/>}></Route>
+        <Route path="/test" element={<Test/>}>
+          <Route index element={<ListTest />} />
+          <Route path='/test/test_1' element={<Test1/>}></Route>
+          <Route path='/test/test_2' element={<Test2/>}></Route>
+          <Route path='/test/test_3' element={<Test3/>}></Route>
+          <Route path='/test/test_4' element={<Test4/>}></Route>
+        </Route>
         <Route path="/dash" element={<Dashboard/>}>
           <Route path='/dash/newuser' element={<NewUser/>}></Route>
-          <Route path='/dash/listuser' element={<ListUser/>}></Route>
+          <Route path='/dash/listuser' index element={<ListUser/>}></Route>
           <Route path='/dash/listevent' element={<ListEvent/>}></Route>
           <Route path='/dash/newevent' element={<NewEvent/>}></Route>
           <Route path='/dash/listedu' element={<ListEdu/>}></Route>
