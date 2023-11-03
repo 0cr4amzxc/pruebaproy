@@ -25,7 +25,7 @@ const router = Router();
 //rutas para cada peticion
 router.get("/evento", getEvts);
 router.get("/evento/:id", getEvt);
-router.post("/evento", verifyToken, createEvt);
+router.post("/evento", createEvt);
 router.put("/evento/:id", updateEvt);
 router.delete("/evento/:id", deleteEvt);
 //prueba subir archivo
