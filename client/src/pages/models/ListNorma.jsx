@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 import { getMaterialNormaRequest, deleteMaterialNormaRequest } from '../../api/material_norma.api'
 
-import { formatDate } from '../../js/methods.js'
+import { formatDate, reduceText } from '../../js/methods.js'
 
 function ListNorma() {
   const [normas, setNormas] = useState([]);
@@ -50,7 +50,7 @@ function ListNorma() {
                 <th>{index + 1}</th>
                 <td>{norma.idMaterial}</td>
                 <td>{norma.url}</td>
-                <td>{norma.desc_nor}</td>
+                <td>{reduceText(norma.desc_nor, 15)}</td>
                 <td>{norma.fuente_nor}</td>
                 <td>{formatDate(norma.vigencia_nor)}</td>
                 <td>

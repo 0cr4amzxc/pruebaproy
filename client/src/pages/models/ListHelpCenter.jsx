@@ -1,5 +1,7 @@
 import React from "react";
 
+import { reduceText } from "../../js/methods";
+
 import { useEffect, useState } from "react";
 import { getCentroRequest, deleteCentroRequest } from "../../api/centros.api";
 
@@ -58,16 +60,16 @@ function ListHelpCenter() {
                     </figure>
                   </td>
                   <td>
-                    {centro.nomb_cna}
+                    {reduceText(centro.nomb_cna, 3)}
                   </td>
                   <td>
                     {centro.categ_cna}
                   </td>
                   <td>
-                    {centro.dir_cna}
+                    {reduceText(centro.dir_cna, 3)}
                   </td>
                   <td>
-                    {centro.desc_cna}
+                    {reduceText(centro.desc_cna, 15 )}
                   </td>
                   <td>
                     <button className="btn btn-error text-base-100 text-xs" onClick={() => deleteCentro(centro.idCentro)}>eliminar</button>

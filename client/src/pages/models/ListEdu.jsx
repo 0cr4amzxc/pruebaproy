@@ -1,5 +1,7 @@
 import React from "react";
 
+import { reduceText } from "../../js/methods.js";
+
 import { useEffect, useState } from "react";
 import {
   getMaterialEduRequest,
@@ -49,7 +51,7 @@ function ListEdu() {
                   <th>{index + 1}</th>
                   <td>{edu.idMaterial}</td>
                   <td>{edu.url}</td>
-                  <td>{edu.desc_edu}</td>
+                  <td>{reduceText(edu.desc_edu, 20)}</td>
                   <td>
                     <button
                       className="btn btn-error text-base-100 text-xs"
