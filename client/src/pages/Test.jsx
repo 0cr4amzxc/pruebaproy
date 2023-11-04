@@ -40,7 +40,7 @@ function Test() {
         <h1 className="text-3xl text-center uppercase pb-2">Test</h1>
         <div className="container flex flex-col lg:flex-row items-start justify-center min-w-full px-8 py-6">
           <div className="flex flex-col gap-3">
-          <Outlet />
+            <Outlet />
           </div>
 
           <div className="divider lg:divider-horizontal"></div>

@@ -4,7 +4,13 @@ import {Route, Routes} from 'react-router-dom';
 
 import Home from './pages/Home';
 import Ayudacentro from './pages/Ayudacentro';
+
 import Denuncia from './pages/Denuncia';
+import CreateDenuncia from './pages/denuncia/CreateDenuncia.jsx';
+import CreatePrueba from './pages/denuncia/CreatePrueba.jsx';
+import CreateTestigo from './pages/denuncia/CreateTestigo.jsx';
+import CreateVictima from './pages/denuncia/CreateVictima.jsx';
+
 import Eventos from './pages/Eventos';
 import Informate from './pages/Informate';
 import Normas from './pages/Normas'
@@ -54,7 +60,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/ayudacentro" element={<Ayudacentro/>}></Route>
-        <Route path="/denuncia" element={<Denuncia/>}></Route>
+        <Route path="/denuncia" element={<Denuncia/>}>
+          <Route index element={<CreateDenuncia/>}></Route>
+          <Route path='/denuncia/addprueba' element={<CreatePrueba/>}></Route>
+          <Route path='/denuncia/addtestigo' element={<CreateTestigo/>}></Route>
+          <Route path='/denuncia/addvictima' element={<CreateVictima/>}></Route>
+        </Route>
         <Route path="/eventos" element={<Eventos/>}></Route>
         <Route path="/informate" element={<Informate/>}></Route>
         <Route path="/informate/edu/:id" element={<Edus/>}></Route>
