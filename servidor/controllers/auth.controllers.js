@@ -58,7 +58,7 @@ export const loginUsuario = async (req, res) => {
 
     //console.log(idUsuario);
 
-    res.status(200).json({ message: 'Inicio de sesión exitoso', token, rol });
+    res.status(200).json({ message: 'Inicio de sesión exitoso', token, rol, idUsuario });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

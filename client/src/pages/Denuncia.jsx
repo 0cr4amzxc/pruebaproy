@@ -2,7 +2,13 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { IconAlertTriangleFilled } from "@tabler/icons-react";
 
+import { useUserContext, useUserToggleContext } from "../userProvider";
+
 function Denuncia() {
+
+  const user = useUserContext();
+  const cambiaLogin = useUserToggleContext();
+
   return (
     <div className="w-full flex flex-col lg:flex-row">
       <div className="container p-2 min-w-full">
