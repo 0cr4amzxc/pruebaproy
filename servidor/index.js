@@ -9,6 +9,9 @@ import educativoRoutes from "./routes/educativo.routes.js";
 import centroRoutes from "./routes/centroAyuda.routes.js";
 import denuncia from "./routes/denuncia.routes.js"
 import prueba from "./routes/prueba.routes.js"
+import testigo from "./routes/testigo.routes.js"
+import den_test from "./routes/den_testigo.routes.js"
+import victima from "./routes/victima.routes.js"
 
 import loginUser from "./routes/auth.routes.js"
 import session from 'express-session';
@@ -38,5 +41,9 @@ app.use(authRoutes);
 app.use(centroRoutes);
 app.use(denuncia);
 app.use(prueba);
+app.use(testigo);
+app.use(den_test);
+app.use(victima);
+
 
 console.log(`Server is running in port ${PORT}`);

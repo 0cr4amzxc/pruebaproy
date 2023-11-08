@@ -147,7 +147,7 @@ function CreateAcusado() {
             <ul className="steps min-w-full sm:w-4/5">
               <li className="step step-info" data-content="●" />
               <li className="step step-info" data-content="●" />
-              <li className="step step-info" data-content="✓" />
+              <li className="step step-info" data-content="●" />
               <li className="step step-info" />
             </ul>
           </div>

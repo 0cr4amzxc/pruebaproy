@@ -32,6 +32,9 @@ function CreatePrueba() {
         try {
           const response = await createPruebaRequest(values);
           console.log(response);
+          //print type of values
+          //console.log(typeof values);
+          //console.log(response.data.idPrueba);
           window.alert("Se añadio con exito");
           resetForm();
           setFormSubmitted(true);
@@ -107,8 +110,8 @@ function CreatePrueba() {
 
           <div className="flex justify-center">
             <ul className="steps min-w-full sm:w-4/5">
-              <li className="step step-info" data-content="✓" />
-              <li className="step step-info" />
+              <li className="step step-info"/>
+              <li className="step" />
               <li className="step" />
               <li className="step" />
             </ul>

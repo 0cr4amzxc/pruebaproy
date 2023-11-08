@@ -119,7 +119,7 @@ function CreateVictima() {
           <div className="flex justify-center">
             <ul className="steps min-w-full sm:w-4/5">
               <li className="step step-info" data-content="●" />
-              <li className="step step-info" data-content="✓" />
+              <li className="step step-info" data-content="●" />
               <li className="step step-info" />
               <li className="step" />
             </ul>

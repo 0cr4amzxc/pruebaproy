@@ -5,7 +5,7 @@ import {
   createTest,
   updateTest,
   deleteTest,
-} from "../controllers/testigo.contollrts.js";
+} from "../controllers/testigo.controllers.js";
 
 const router = Router();
 

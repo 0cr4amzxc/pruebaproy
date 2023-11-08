@@ -7,7 +7,9 @@ import {
   IconChevronRight,
 } from "@tabler/icons-react";
 
-import { createDenunciaRequest } from "../../api/denuncia.api";
+import { createTestigoRequest } from "../../api/testigo.api";
+import { createDenTestigoRequest } from "../../api/den_testigo.api";
+
 
 function CreateTestigo() {
   const navigate = useNavigate();
@@ -30,9 +32,11 @@ function CreateTestigo() {
       onSubmit={async (values, { resetForm }) => {
         console.log(values);
         try {
-          //const response = await createDenunciaRequest(values);
-          //console.log(response);
-          window.alert("Se añadio con exito");
+          const response = await createTestigoRequest(values);
+          console.log(response);
+          window.alert("Se añadio con exito "+response.data.id);
+          const response2 = await createDenTestigoRequest({idDenuncia: params.id, idTestigo: response.data.id});
+          console.log(response2);
           resetForm();
           setFormSubmitted(true);
           //navigate(`/denuncia/addprueba/${response.data.id}`);
@@ -101,8 +105,8 @@ function CreateTestigo() {
           <div className="flex justify-center">
             <ul className="steps min-w-full sm:w-4/5">
               <li className="step step-info" data-content="●" />
-              <li className="step step-info" data-content="✓" />
-              <li className="step step-info" />
+              <li className="step step-info"/>
+              <li className="step" />
               <li className="step" />
             </ul>
           </div>

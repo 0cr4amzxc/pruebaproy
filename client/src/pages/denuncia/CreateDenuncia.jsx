@@ -96,15 +96,6 @@ function CreateDenuncia() {
             </div>
           </fieldset>
 
-          <div className="my-4 flex justify-center">
-            <ul className="steps min-w-full sm:w-4/5">
-              <li className="step step-info" />
-              <li className="step" />
-              <li className="step" />
-              <li className="step" />
-            </ul>
-          </div>
-
           <div className="form-control mt-6 grid grid-cols-3 gap-4">
             <button className="btn btn-primary text-base-100 hidden">
               <IconChevronLeft />
