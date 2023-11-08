@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-
 import { IconAlertTriangleFilled } from "@tabler/icons-react";
 
 function Denuncia() {
@@ -20,7 +19,7 @@ function Denuncia() {
         <h1 className="text-3xl text-center uppercase pb-2">
           realizar denuncia
         </h1>
-        <div className="container flex flex-col-reverse lg:flex-row items-center lg:items-start justify-center min-w-full px-8 py-6">
+        <div className="container flex flex-col-reverse lg:flex-row items-center lg:items-start justify-center min-w-full px-2 py-5 sm:px-8 sm:py-6">
           <div className="container flex flex-col items-center gap-3 w-full lg:w-9/12 bg-base-200 p-4 lg:p-8 rounded-xl">
             <Outlet />
           </div>

@@ -10,6 +10,7 @@ import CreateDenuncia from './pages/denuncia/CreateDenuncia.jsx';
 import CreatePrueba from './pages/denuncia/CreatePrueba.jsx';
 import CreateTestigo from './pages/denuncia/CreateTestigo.jsx';
 import CreateVictima from './pages/denuncia/CreateVictima.jsx';
+import CreateAcusado from './pages/denuncia/CreateAcusado.jsx';
 
 import Eventos from './pages/Eventos';
 import Informate from './pages/Informate';
@@ -62,9 +63,10 @@ function App() {
         <Route path="/ayudacentro" element={<Ayudacentro/>}></Route>
         <Route path="/denuncia" element={<Denuncia/>}>
           <Route index element={<CreateDenuncia/>}></Route>
-          <Route path='/denuncia/addprueba' element={<CreatePrueba/>}></Route>
-          <Route path='/denuncia/addtestigo' element={<CreateTestigo/>}></Route>
-          <Route path='/denuncia/addvictima' element={<CreateVictima/>}></Route>
+          <Route path='/denuncia/addprueba/:id' element={<CreatePrueba/>}></Route>
+          <Route path='/denuncia/addtestigo/:id' element={<CreateTestigo/>}></Route>
+          <Route path='/denuncia/addvictima/:id' element={<CreateVictima/>}></Route>
+          <Route path='/denuncia/addacusado/:id' element={<CreateAcusado/>}></Route>
         </Route>
         <Route path="/eventos" element={<Eventos/>}></Route>
         <Route path="/informate" element={<Informate/>}></Route>

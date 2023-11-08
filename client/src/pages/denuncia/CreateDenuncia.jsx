@@ -1,28 +1,35 @@
 import React from "react";
 import { Form, Formik } from "formik";
-
+import { useNavigate } from "react-router-dom";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
+import { createDenunciaRequest } from "../../api/denuncia.api";
+
 function CreateDenuncia() {
+  const navigate = useNavigate();
+
   return (
     <Formik
       initialValues={{
         idUsuario: "301",
         tipo_den: "",
         fec_den: "",
+        desc_den: "",
       }}
-      onSubmit={async (values) => {
+      onSubmit={async (values, actions) => {
         console.log(values);
         try {
-          //const response = await createUsuarioRequest(values);
-          window.alert("Se ha creado el usuario con exito");
-          //navigate("/signup");
+          const response = await createDenunciaRequest(values);
+          console.log(response);
+          navigate(`/denuncia/addprueba/${response.data.id}`);
+          actions.resetForm();
         } catch (error) {
+          window.alert("Algo salio mal");
           console.log(error);
         }
       }}
     >
-      {({ handleChange, handleSubmit }) => (
+      {({ handleChange, handleSubmit, values}) => (
         <Form
           className="card-body px-4 sm:px-6 lg:p-8 card flex-shrink-0 w-full lg:w-3/4 shadow-2xl bg-base-100"
           onSubmit={handleSubmit}
@@ -40,9 +47,10 @@ function CreateDenuncia() {
                   className="select select-bordered w-full"
                   name="tipo_den"
                   onChange={handleChange}
+                  value={values.tipo_den}
                   required
                 >
-                  <option disabled defaultValue={""}>
+                  <option>
                     Seleccionar una opcion
                   </option>
                   <option value={"fisica"}>Violencia fisica</option>
@@ -58,14 +66,15 @@ function CreateDenuncia() {
                 </select>
               </div>
               <div className="form-control">
-                <label htmlFor="fechaEventoIn" className="label">
-                  <span className="label-text">Fecha de Inicio</span>
+                <label htmlFor="fechaDenuncia" className="label">
+                  <span className="label-text">Fecha del suceso</span>
                 </label>
                 <input
                   type="date"
-                  name="fecini_evento"
+                  name="fec_den"
                   onChange={handleChange}
                   className="input input-bordered"
+                  value={values.fec_den}
                   required
                 />
               </div>
@@ -75,10 +84,11 @@ function CreateDenuncia() {
                 </label>
                 <textarea
                   type="text"
-                  name="descripcion"
+                  name="desc_den"
                   placeholder="Escriba detalladamente los sucesos su denuncia procure proporcionar detalles completos y precisos sobre los eventos que denuncia."
                   onChange={handleChange}
                   className="input input-bordered textarea-primary p-2 min-h-[10rem]"
+                  value={values.desc_den}
                   required
                 />
               </div>
@@ -86,17 +96,16 @@ function CreateDenuncia() {
           </fieldset>
 
           <div className="my-4 flex justify-center">
-            <ul className="steps w-4/5">
-              <li className="step step-info"/>
-              <li className="step"/>
-              <li className="step"/>
-              <li className="step"/>
-              <li className="step"/>
+            <ul className="steps min-w-full sm:w-4/5">
+              <li className="step step-info" />
+              <li className="step" />
+              <li className="step" />
+              <li className="step" />
             </ul>
           </div>
 
-          <div className="form-control mt-6 grid grid-cols-2 gap-4">
-            <button className="btn btn-primary text-base-100 hidden" type="submit">
+          <div className="form-control mt-6 grid grid-cols-3 gap-4">
+            <button className="btn btn-primary text-base-100 hidden">
               <IconChevronLeft />
               <span className="hidden sm:block">Anterior</span>
             </button>
