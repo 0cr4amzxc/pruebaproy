@@ -41,6 +41,7 @@ function Login() {
       });
 
       const userRol = response.data.rol;
+      const userId = response.data.idUsuario;
       console.log("el rol al logearse");
       console.log(userRol);
       //console.log(user.rol);
@@ -49,7 +50,7 @@ function Login() {
         // La solicitud de inicio de sesión fue exitosa
         // Ahora puedes utilizar userRol según tus necesidades, por ejemplo, redirigir a una página específica
         console.log("entra al estado 200");
-        cambiaLogin(userRol);
+        cambiaLogin(userRol, userId);
         if(userRol === "admin"){navigate("/dash", { state: { userRol } });}
         else if(userRol === "usuario"){navigate("/");}
         else {console.log("ROL NO ENCONTRADO!")}
