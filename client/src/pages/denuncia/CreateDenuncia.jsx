@@ -21,6 +21,7 @@ function CreateDenuncia() {
         try {
           const response = await createDenunciaRequest(values);
           console.log(response);
+          window.alert(response.data.message)
           navigate(`/denuncia/addprueba/${response.data.id}`);
           actions.resetForm();
         } catch (error) {

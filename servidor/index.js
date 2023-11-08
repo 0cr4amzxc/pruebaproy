@@ -8,6 +8,7 @@ import normaRoutes from "./routes/norma.routes.js";
 import educativoRoutes from "./routes/educativo.routes.js";
 import centroRoutes from "./routes/centroAyuda.routes.js";
 import denuncia from "./routes/denuncia.routes.js"
+import prueba from "./routes/prueba.routes.js"
 
 import loginUser from "./routes/auth.routes.js"
 import session from 'express-session';
@@ -36,5 +37,6 @@ app.use(loginUser);
 app.use(authRoutes);
 app.use(centroRoutes);
 app.use(denuncia);
+app.use(prueba);
 
 console.log(`Server is running in port ${PORT}`);

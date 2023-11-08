@@ -241,7 +241,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS  `prueba` (
   `idPrueba` INT NOT NULL AUTO_INCREMENT,
   `idDenuncia` INT NOT NULL,
-  `archivo_pru` VARCHAR(100) NOT NULL,
+  `archivo_pru` VARCHAR(800) NOT NULL,
   `des_pru` VARCHAR(100) NOT NULL,
   `tipo_pru` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idPrueba`, `idDenuncia`),

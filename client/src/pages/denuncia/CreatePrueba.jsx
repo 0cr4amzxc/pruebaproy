@@ -7,7 +7,7 @@ import {
   IconChevronRight,
 } from "@tabler/icons-react";
 
-import { createDenunciaRequest } from "../../api/denuncia.api";
+import { createPruebaRequest } from "../../api/prueba.api";
 
 function CreatePrueba() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function CreatePrueba() {
   return (
     <Formik
       initialValues={{
-        idDenuncia: "301",
+        idDenuncia: params.id,
         archivo_pru: "",
         tipo_pru: "",
         des_pru: "",
@@ -30,8 +30,8 @@ function CreatePrueba() {
       onSubmit={async (values, { resetForm }) => {
         console.log(values);
         try {
-          //const response = await createDenunciaRequest(values);
-          //console.log(response);
+          const response = await createPruebaRequest(values);
+          console.log(response);
           window.alert("Se añadio con exito");
           resetForm();
           setFormSubmitted(true);

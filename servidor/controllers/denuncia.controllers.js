@@ -29,7 +29,7 @@ export const createDenuncia = async (req, res) => {
   try {
     const { idUsuario, tipo_den, fec_den, desc_den } = req.body;
 
-    const result = await pool.query(
+    const [result] = await pool.query(
       "INSERT INTO denuncia (idUsuario, tipo_den, fec_den, desc_den) VALUES (?, ?, ?, ?)",
       [idUsuario, tipo_den, fec_den, desc_den]
     );
@@ -46,8 +46,6 @@ export const createDenuncia = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
-
-
 
 export const updateDenuncia = async (req, res) => {
   try {
