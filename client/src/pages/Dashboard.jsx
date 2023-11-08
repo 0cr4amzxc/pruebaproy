@@ -27,10 +27,11 @@ function Dashboard({userRoles}) {
     <div>
       {user && <p>¡ Usted es {user.rol} !</p>}
     </div>
+    {userRole === "admin" && (
     <div className="w-full flex flex-col-reverse md:flex-row">
       <div className="container p-2 w-full md:w-1/4 flex flex-col gap-2">
 
-      {userRole === "admin" && (
+      
         <div className="collapse collapse-arrow bg-base-200">
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">
@@ -67,7 +68,7 @@ function Dashboard({userRoles}) {
           
           </div>
         </div>
-      )}
+     
 
         <div className="collapse collapse-arrow bg-base-200">
           <input type="radio" name="my-accordion-2" />
@@ -239,6 +240,7 @@ function Dashboard({userRoles}) {
         </div>
       </div>
     </div>
+     )}
     </>
   );
 }

@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { useUserContext, useUserToggleContext } from "../userProvider";
+
 function NavBar() {
+
+  const user = useUserContext();
+
+  const userRole = user.rol
+
   return (
     <>
       <div className="navbar sticky top-0 z-10 drop-shadow-2xl bg-primary text-base-100">
@@ -66,9 +73,12 @@ function NavBar() {
         </div>
         <div className="flex-none hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
+            {userRole === "admin" && (
+              <li>
               <Link to="/dash">Dashboard</Link>
             </li>
+            )}
+            
             <li tabIndex={0}>
               <details>
                 <summary>Información</summary>
