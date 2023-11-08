@@ -21,7 +21,7 @@ function CreateAcusado() {
   return (
     <Formik
       initialValues={{
-        idDenuncia: "301",
+        idDenuncia: params.id,
         nom_acu: "",
         ci_acu: "",
         ranEdad_acu: "",

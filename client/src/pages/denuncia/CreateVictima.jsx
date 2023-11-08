@@ -21,7 +21,7 @@ function CreateVictima() {
   return (
     <Formik
       initialValues={{
-        idDenuncia: "301",
+        idDenuncia: params.id,
         nom_vic: "",
         ci_vic: "",
         ranEdad_vic: "",
