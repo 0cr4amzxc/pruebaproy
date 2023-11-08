@@ -162,6 +162,7 @@ CREATE TABLE IF NOT EXISTS  `denuncia` (
   `idUsuario` INT  NULL,
   `tipo_den` VARCHAR(50) NOT NULL,
   `fec_den` TIMESTAMP NOT NULL,
+  `desc_den` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`idDenuncia`),
   FOREIGN KEY (`idUsuario`)
     REFERENCES  `usuario` (`idUsuario`)

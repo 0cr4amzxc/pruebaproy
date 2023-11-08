@@ -27,14 +27,11 @@ export const getDenuncia = async (req, res) => {
 
 export const createDenuncia = async (req, res) => {
   try {
-    const { idUsuario, tipo_den, fec_den } = req.body;
+    const { idUsuario, tipo_den, fec_den, desc_den } = req.body;
 
-    // Guarda el id del usuario que hace la denuncia
-    //const idUsuario = req.user.id;
-
-    const [result] = await pool.query(
-      "INSERT INTO denuncia (idUsuario, tipo_den, fec_den) VALUES (?, ?, NOW())",
-      [idUsuario, tipo_den, fec_den]
+    const result = await pool.query(
+      "INSERT INTO denuncia (idUsuario, tipo_den, fec_den, desc_den) VALUES (?, ?, ?, ?)",
+      [idUsuario, tipo_den, fec_den, desc_den]
     );
 
     console.log(result);
@@ -42,12 +39,15 @@ export const createDenuncia = async (req, res) => {
       id: result.insertId,
       idUsuario,
       tipo_den,
-      fec_den: new Date().toISOString(), // Se podria modificar para que la BD ponga la fecha del sistema sin esta linea de codigo
+      fec_den,
+      desc_den,
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
+
+
 
 export const updateDenuncia = async (req, res) => {
   try {
