@@ -15,8 +15,8 @@ export function useUserToggleContext(){
 export function UserProvider({children}){
 
   const [user, setUser] = useState({
-    rol: "defecto",
-    id: "defecto"
+    rol: "default",
+    id: "00000"
   });
 
   const cambiaLogin = (rol, id) =>{
@@ -24,8 +24,8 @@ export function UserProvider({children}){
       setUser({rol,id})
     }else{
       setUser({
-        rol : "defecto",
-        id: "defecto"
+        rol : "default",
+        id: "00000"
       })
     }
   }
