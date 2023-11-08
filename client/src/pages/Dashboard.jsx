@@ -14,6 +14,7 @@ function Dashboard({userRoles}) {
     if (user) {
       // La actualización del estado ha tenido lugar
       console.log("Actualización del estado en dash: hola " + user.rol);
+      console.log("Actualización del id " + user.id);
     }
   }, [user]);
 
