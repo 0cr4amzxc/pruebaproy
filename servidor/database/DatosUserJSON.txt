@@ -1,0 +1,28 @@
+************ PARA REGISTRAR ANTES DE LOGEARSE ************
+
+http://localhost:4000/usuario
+
+
+{
+    "nom_usu" : "user",
+    "pat_usu" : "patUser",
+    "mat_usu" : "matUser",
+    "ci_usu" : "ciUser",
+    "alias_usu" : "aliasUser",
+    "password_usu" : "user",
+    "correo_usu" : "user@example.com",
+    "genero_usu" : "F",
+    "rol" : "usuario"
+  }
+
+{
+    "nom_usu" : "admin",
+    "pat_usu" : "patAdmin",
+    "mat_usu" : "matAdmin",
+    "ci_usu" : "ciAdmin",
+    "alias_usu" : "aliasAdmin",
+    "password_usu" : "admin",
+    "correo_usu" : "admin@example.com",
+    "genero_usu" : "Female",
+    "rol" : "admin"
+}

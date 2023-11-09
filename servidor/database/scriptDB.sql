@@ -3,9 +3,23 @@
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cuestionario` (
   `idCuestionario` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(50) NULL,
-  `tipo` VARCHAR(50) NULL,
+  `titulo` VARCHAR(100) NULL,
+  `descripcion` VARCHAR(500) NULL,
   PRIMARY KEY (`idCuestionario`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table  `preguntas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS  `pregunta` (
+  `idPregunta` INT NOT NULL AUTO_INCREMENT,
+  `idCuestionario` INT NOT NULL,    
+  `pregunta_c` VARCHAR(250) NULL,
+  PRIMARY KEY (`idPregunta`, `idCuestionario`),
+  FOREIGN KEY (`idCuestionario`)
+    REFERENCES  `cuestionario` (`idCuestionario`)
+    ON DELETE  CASCADE
+    ON UPDATE  CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -163,6 +177,7 @@ CREATE TABLE IF NOT EXISTS  `denuncia` (
   `tipo_den` VARCHAR(50) NOT NULL,
   `fec_den` TIMESTAMP NOT NULL,
   `desc_den` VARCHAR(300) NOT NULL,
+  `geoloc_den` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`idDenuncia`),
   FOREIGN KEY (`idUsuario`)
     REFERENCES  `usuario` (`idUsuario`)

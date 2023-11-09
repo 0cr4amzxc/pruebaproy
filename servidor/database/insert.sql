@@ -67,17 +67,73 @@ VALUES
     (504, 'https://i.postimg.cc/3JNqLQ44/center5.jpg', 'Centro de Orientación Legal - Derechos Claros', 'Legal', 'Avenida Justicia #567, Barrio Legalidad, Ciudad Derechos, Cochabamba', 'Este centro ofrece asesoramiento legal gratuito a personas que necesitan orientación sobre sus derechos, particularmente en situaciones de violencia, discriminación o vulneración de derechos humanos. Cuentan con abogados especializados en diferentes áreas legales.');
 
 -- * Denuncias
-INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
-VALUES (600, 301, 'Fraude', '2023-10-10 12:00:00');
+INSERT INTO `denuncia`(`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`, `desc_den`, `geoloc_den`) 
+VALUES (600, 301, 'Fraude', '2023-10-10 12:00:00','Engaño en la venta de un automovíl robado','https://maps.app.goo.gl/E83rzvAUuh1QX73V9');
 
-INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
-VALUES (601, 301, 'Acoso', '2023-10-11 14:30:00');
+INSERT INTO `denuncia`(`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`, `desc_den`, `geoloc_den`) 
+VALUES (601, 301, 'Acoso', '2023-10-11 14:30:00','Constante persecusión e insinuaciones','https://maps.app.goo.gl/iFsfQXShrhuS51B59');
 
-INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
-VALUES (602, 302, 'Robo', '2023-10-12 09:45:00');
+INSERT INTO `denuncia`(`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`, `desc_den`, `geoloc_den`) 
+VALUES (602, 302, 'Robo', '2023-10-12 09:45:00','Extraccion de dinero de la caja de un negocio','https://maps.app.goo.gl/bQstKwKHji2Lmkte8');
 
-INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
-VALUES (603, 303, 'Violencia', '2023-10-13 16:20:00');
+INSERT INTO `denuncia`(`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`, `desc_den`, `geoloc_den`) 
+VALUES (603, 303, 'Violencia', '2023-10-13 16:20:00','Agresión fisica a una mujer','https://maps.app.goo.gl/Ryktf55V3nRnfCvE9');
 
-INSERT INTO `denuncia` (`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`)
-VALUES (604, 304, 'Difamación', '2023-10-14 11:10:00');
+INSERT INTO `denuncia`(`idDenuncia`, `idUsuario`, `tipo_den`, `fec_den`, `desc_den`, `geoloc_den`) 
+VALUES (604, 304, 'Difamación', '2023-10-14 11:10:00','Publicacion de falsas acusaciones en RRSS','https://maps.app.goo.gl/4azntzfHoN6kyiqe7');
+
+-- * Victima
+INSERT INTO `victima`(`idVictima`, `nom_vic`, `ci_vic`, `ranEdad_vic`, `genero_vic`) 
+VALUES  (1,'Pedro','66666666','20-25 años','masculino'),
+        (2,'Maria','78451232','30-35 años','femenino'),
+        (3,'Ana','74185296','35-40 años','femenino'),
+        (4,'Alfredo','36996322','25-30 años','masculino'),
+        (5,'Rosa','87596321','20-25 años','femenino');
+-- * Victima_den
+INSERT INTO `victima_den`(`idVictima`, `idDenuncia`) 
+VALUES  (1,600),
+        (2,601),
+        (3,602),
+        (4,603),
+        (5,604);
+
+
+-- * Testigo
+INSERT INTO `testigo`(`idTestigo`, `nom_tes`, `ci_tes`, `genero_tes`) 
+VALUES  (11,'Anonimo','55887744','masculino'),
+        (22,'Juan','11447744','masculino'),
+        (33,'Gregorio','22112211','masculino'),
+        (44,'Fernando','33553366','masculino'),
+        (55,'Patricia','77441122','femenino');
+-- * Testigo_den
+INSERT INTO `den_testigo`(`idTestigo`, `idDenuncia`) 
+VALUES  (11,600),
+        (22,601),
+        (33,602),
+        (44,603),
+        (55,604);
+
+
+-- * Acusado
+INSERT INTO `acusado`(`idAcusado`, `nom_acu`, `ci_acu`, `ranEdad_acu`, `genero_acu`, `dir_acu`, `foto_acu`) 
+VALUES  (111,'Gabriela','7777444','40-45 años','femenino','Av. saavedra, Z. Miraflores #123','--'),
+        (112,'Gilberto','77488777','50-55 años','masculino','C. Falsa Z. Donde sea #333','--'),
+        (113,'Alberto','9874000','30-35 años','masculino','desconocida','--'),
+        (114,'Pedro','54545454','25-30 años','masculino','Av. yoquese Z. 16 de julio #666','--'),
+        (115,'Julieta','12121212','20-25 años','femenino','C. Retamas Z. Inventada #444','--');
+-- * Acusado_den
+INSERT INTO `acusado_den`(`idAcusado`, `idDenuncia`) 
+VALUES  (111,600),
+        (112,601),
+        (113,602),
+        (114,603),
+        (115,604);
+
+
+-- * Prueba
+INSERT INTO `prueba`(`idPrueba`, `idDenuncia`, `archivo_pru`, `des_pru`, `tipo_pru`) 
+VALUES  ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]'),
+        ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]'),
+        ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]'),
+        ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]'),
+        ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]');
