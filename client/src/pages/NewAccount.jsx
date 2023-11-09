@@ -21,7 +21,7 @@ function NewAccount() {
             password_usu: "",
             correo_usu: "",
             genero_usu: "",
-            rol_usu: "user",
+            rol: "usuario",
           }}
           onSubmit={async (values) => {
             console.log(values);

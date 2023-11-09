@@ -4,14 +4,24 @@ import { useNavigate } from "react-router-dom";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
 import { createDenunciaRequest } from "../../api/denuncia.api";
+import { useEffect, useState } from 'react'
+import { useUserContext } from "../../userProvider";
 
 function CreateDenuncia() {
   const navigate = useNavigate();
+  const user = useUserContext();
+
+  useEffect(() => {
+    console.log(user.id);
+    if (user.id === "00000") {
+      window.alert("Recuerda inciar sesion para hacer la denuncia, de lo contrario sera una denuncia anonima")
+    }
+  }, [user]);
 
   return (
     <Formik
       initialValues={{
-        idUsuario: "301",
+        idUsuario: user.id,
         tipo_den: "",
         fec_den: "",
         desc_den: "",

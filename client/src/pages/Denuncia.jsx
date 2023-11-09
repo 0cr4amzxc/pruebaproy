@@ -2,19 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { IconAlertTriangleFilled } from "@tabler/icons-react";
 
-import { useEffect, useState } from 'react'
-import { useUserContext } from "../userProvider";
-
 function Denuncia() {
-
-  const user = useUserContext();
-
-  useEffect(() => {
-    console.log(user.id);
-    if (user.id === "00000") {
-      window.alert("Recuerda inciar sesion para hacer la denuncia, de lo contrario sera una denuncia anonima")
-    }
-  }, [user]);
 
   return (
     <div className="w-full flex flex-col lg:flex-row">
