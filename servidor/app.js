@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use(
     Cors({
-      origin: "https://stirring-melba-c56661.netlify.app",
+      origin: "https://stellular-chimera-da30d4.netlify.app",
     })
   );
 
