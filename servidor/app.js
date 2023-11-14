@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use(
     Cors({
-      origin: "http://localhost:5173",
+      origin: "https://stirring-melba-c56661.netlify.app",
     })
   );
 
