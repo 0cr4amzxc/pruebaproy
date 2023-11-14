@@ -25,7 +25,7 @@ function Login() {
   const handleLogin = async () => {
     try {
       // Define la URL del punto final de inicio de sesión
-      const apiUrl = "http://localhost:4000/login";
+      const apiUrl = "https://pruebaproy-production.up.railway.app/login";
 
       // Crea un objeto con los datos de inicio de sesión
       const loginData = {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getEventRequest = async (events) => {
-  return await axios.get("http://localhost:4000/evento", events);
+  return await axios.get("https://pruebaproy-production.up.railway.app/evento", events);
 };
 
 export const createEventRequest = async (events) => {
@@ -11,7 +11,7 @@ export const createEventRequest = async (events) => {
 export const deleteEventRequest = async (eventId) => {
   try {
     const response = await axios.delete(
-      `http://localhost:4000/evento/${eventId}`
+      `https://pruebaproy-production.up.railway.app/evento/${eventId}`
     );
     return response.data;
   } catch (error) {

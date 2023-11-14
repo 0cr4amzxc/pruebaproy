@@ -4,7 +4,7 @@ import axios from "axios";
 async function iniciarSesion(correo, contrasena) {
   try {
     // Realizar una solicitud POST al endpoint de inicio de sesión en el backend
-    const response = await axios.post('http://localhost:4000/login', {
+    const response = await axios.post('https://pruebaproy-production.up.railway.app/login', {
       correo_usu: correo,
       password_usu: contrasena,
     });
