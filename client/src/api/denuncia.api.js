@@ -1,17 +1,17 @@
 import axios from "axios";
 
 export const getDenunciaRequest = async (denuncias) => {
-    return await axios.get("http://localhost:4000/denuncia", denuncias);
+    return await axios.get("https://pruebaproy-production.up.railway.app/denuncia", denuncias);
 }
 
 export const createDenunciaRequest = async (denuncias) => {
-    return await axios.post("http://localhost:4000/denuncia", denuncias);
+    return await axios.post("https://pruebaproy-production.up.railway.app/denuncia", denuncias);
 }
 
 export const deleteDenunciaRequest = async (denunciaId) => {
     try {
         const response = await axios.delete(
-            `http://localhost:4000/denuncia/${denunciaId}`
+            `https://pruebaproy-production.up.railway.app/denuncia/${denunciaId}`
         );
         return response.data;
     } catch (error) {

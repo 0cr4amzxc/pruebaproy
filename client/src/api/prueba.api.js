@@ -1,17 +1,17 @@
 import axios from "axios";
 
 export const getPruebasRequest = async () => {
-    return await axios.get("http://localhost:4000/prueba");
+    return await axios.get("https://pruebaproy-production.up.railway.app/prueba");
 }
 
 export const createPruebaRequest = async (pruebaData) => {
-    return await axios.post("http://localhost:4000/prueba", pruebaData);
+    return await axios.post("https://pruebaproy-production.up.railway.app/prueba", pruebaData);
 }
 
 export const deletePruebaRequest = async (pruebaId) => {
     try {
         const response = await axios.delete(
-            `http://localhost:4000/prueba/${pruebaId}`
+            `https://pruebaproy-production.up.railway.app/prueba/${pruebaId}`
         );
         return response.data;
     } catch (error) {

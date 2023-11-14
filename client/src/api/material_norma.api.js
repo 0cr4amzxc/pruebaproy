@@ -1,17 +1,17 @@
 import axios from "axios";
 
 export const getMaterialNormaRequest = async (normas) => {
-    return await axios.get("http://localhost:4000/norma", normas);
+    return await axios.get("https://pruebaproy-production.up.railway.app/norma", normas);
 }
 
 export const createMaterialNormaRequest = async (normas) => {
-    return await axios.post("http://localhost:4000/norma", normas);
+    return await axios.post("https://pruebaproy-production.up.railway.app/norma", normas);
 }
 
 export const deleteMaterialNormaRequest = async (normaId) => {
     try {
         const response = await axios.delete(
-        `http://localhost:4000/norma/${normaId}`
+        `https://pruebaproy-production.up.railway.app/norma/${normaId}`
         );
         return response.data;
     } catch (error) {
@@ -21,5 +21,5 @@ export const deleteMaterialNormaRequest = async (normaId) => {
 }
 
 export const getNormaRequest = (id) => {
-    return axios.get(`http://localhost:4000/norma/${id}`);
+    return axios.get(`https://pruebaproy-production.up.railway.app/norma/${id}`);
 }
