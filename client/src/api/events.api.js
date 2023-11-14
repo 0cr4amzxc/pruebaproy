@@ -5,7 +5,7 @@ export const getEventRequest = async (events) => {
 };
 
 export const createEventRequest = async (events) => {
-  return await axios.post("http://localhost:4000/evento", events);
+  return await axios.post("https://pruebaproy-production.up.railway.app/evento", events);
 };
 
 export const deleteEventRequest = async (eventId) => {
